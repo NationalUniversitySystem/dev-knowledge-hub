@@ -3,6 +3,7 @@
 		- [Fundamentals](codeguide/fundamentals.md)
 		- [HTML](codeguide/html.md)
 		- [CSS](codeguide/css.md)
+		- [JS](codeguide/js.md)
 		- [Accessibility](codeguide/accessibility.md)
 		- [PHP](codeguide/php.md)
 		- [WordPress](codeguide/wordpress.md)
