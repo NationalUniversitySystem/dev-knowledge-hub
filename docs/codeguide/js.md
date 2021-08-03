@@ -2,21 +2,25 @@
 
 ## Important Concepts & Rules
 - `Hoisting` is JavaScript's default behavior of moving declarations to the top.
+- Good code explains itself! However, comment what you consider needed - but don’t tell others your life story.
+
+### Functions Functions Functions
 - All `Function Declarations` are hoisted.
 - A `Function Expression` is an anonymous function that is saved into a variable. They do not get hoisted.
 - In a `Regular function`, the `this` keyword is bind to the `window object` instead of the scope of where the function is located.
 - In an `Arrow Functions`, the `this` keyword is automatically bind to where the function or class is located.
+- Make sure to write smaller, generic helper functions that fulfill one specific task rather than catch-all methods.
+
+### Variable declaration
+- Always use strict equality operator `===`. The abstract equality operator `==` only compares value, not type.
+- Both `null` and `undefined` represent empty values. When a variable is declared, but not assign a value, JS will automatically set `undefined` as a placeholder.
+- If you do `typeOf` `undefined` the value will be `undefined`, whereas the value of `null` will be an object.
 - Declare all your variables as a `const` unless the use of `let` is required.
 - `let` variables are block scoped.`var` variables are function scoped.
 - `let` variables are not added to the global object. `var` variables are added to the global object as properties.
 - `let` variables can not be re-declared. It will give you an error. `var` keyword allows you to redeclare a variable without any issue.
 - Avoid using `var` to declare variables. `var` variables get 'hoisted', which can lead to unexpected results.
 - Avoid confusing undescriptive variable names, for example: `x1 , num21, incrementerForMainLoopWhichSpansFromTenToTwenty`.
-- Always use strict equality operator `===`. The abstract equality operator `==` only compares value, not type.
-- Both `null` and `undefined` represent empty values. When a variable is declared, but not assign a value, JS will automatically set `undefined` as a placeholder.
-- If you do `typeOf` `undefined` the value will be `undefined`, whereas the value of `null` will be an object.
-- Good code explains itself! However, comment what you consider needed - but don’t tell others your life story.
-- Make sure to write smaller, generic helper functions that fulfill one specific task rather than catch-all methods.
 - Use shortcut notations to make your code easier to read, for example: `let user = object.username || 'Guest'`, Ternary Operators, and Destructuring.
 
 ## Use Strict Mode
