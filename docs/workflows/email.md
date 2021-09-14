@@ -25,29 +25,29 @@ The following steps are based on the [Email Project Schedule Breakdown](https://
 		- The [email-dev](https://github.com/NationalUniversitySystem/email-dev) builds take ~30 seconds max and are hosted at [nus-email-dev.netlify.app](https://nus-email-dev.netlify.app/).
 - Workamajig Proofs
 	- Template Internal Review (CE_AS Internal Review)
-		- **Deliverable name**: Design Proof: Template Internal Review
+		- **Deliverable name**: HTML Template: Template Internal Review
 		- **Approval list**:
-			- Copy writer: Deb, Nicole Brown (Coco), Adam, Karaline, or other copy writer.
+			- Copy writer: Deb, Adam, Karaline, Andrea, Brooke, or other copy writer.
 			- Design: Alicia
 			- CE Email: Lizzy || April
 			- Account Manager:
-				- NU, NUS & NUVHS: Gabby
-				- NCU & CityU: Marissa || Denisse
-				- Sanford: Kirsten || Megan
+				- NU, NUS & NUVHS: Gabby || Megan
+				- NCU & CityU: Denisse
+				- The Programs (Harmony - Fundraising Academy - Inspire): Kirsten
 				- NUS HR Emails: Danielle
-		- **Notifications**: yourself, Juvi, Lynda || Megan, & the selected people from options above.
+		- **Notifications**: yourself, Juvi, Lynda || Danielle, & the selected people from options above.
 		- **Deliverable file**: Use the URL from Email tool.
 	- Client - Review
-		- **Deliverable name**: Design Proof: Client Review
+		- **Deliverable name**: HTML Template: Client Review
 		- **Approval list**:
-			- NU, NUS & NUVHS: Gabby
-			- NCU & CityU: Marissa || Denisse
-			- Sanford: Kirsten || Megan
+			- NU, NUS & NUVHS: Gabby || Megan
+			- NCU & CityU: Denisse
+			- The Programs (Harmony - Fundraising Academy - Inspire): Kirsten
 			- NUS HR Emails: Danielle
 		- **Notifications**: yourself, Juvi, Lizzy || April, Lynda || Danielle, Alicia, whoever wrote the copy, & the person from option above.
 		- **Deliverable file**: Use the URL from Email tool.
 	- Final Proofread - Review
-		- **Deliverable name**: Design Proof: Final Proofread
+		- **Deliverable name**: HTML Template: Final Proofread
 		- **Approval list**:
 			- Whoever DIDN’T write the copy. Person should be the one who's assigned for this task on the "Schedule" tab.
 		- **Notifications**: yourself, Juvi, Lynda || Danielle, whoever wrote the copy, & the person from option above.
