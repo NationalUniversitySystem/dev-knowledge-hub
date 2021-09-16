@@ -29,11 +29,12 @@ If a program is being moved from one department to another, please be mindful of
 ## WP Caching
 - We use the [WP Object Cache](https://developer.wordpress.org/reference/functions/wp_cache_get/) to store & display Program data on Department pages ([example](https://www.nu.edu/ourprograms/collegeoflettersandsciences/mathematicsandnaturalsciences/)), in order to reduce unnecessary WP Queries and boost page speed.
 - This means that after we remove a Program, we need to update the cache. Otherwise the Program will continue to be shown on Department pages.
-- Rather than flushing the cache for the entire site, we can delete the cache object for the specific Program we just removed:
-	- via WP-CLI: `wp cache delete program_list_[POST-ID]`
-	- via VIP-CLI: `vip @1161.production -- wp cache delete programs_list_[POST-ID]`
-	- `[POST-ID]` is the WordPress ID for the removed post, can be found from WP Admin.
-	- `@1161.production` specifies that we want to run the wp-cli command on the nu.edu production environment.
+- We have functionality built-in to the Programs CPT to auto-flush the cache whenever a Program is published/updated/removed. **However** if for some reason we still need to manually flush the cache, do the following steps: 
+	- Rather than flushing the cache for the entire site, we can delete the cache object for the specific Program we just removed:
+		- via WP-CLI: `wp cache delete programs_list_[DEPARTMENT-ID]`
+		- via VIP-CLI: `vip @1161.production -- wp cache delete programs_list_[DEPARTMENT-ID]`
+		- `[DEPARTMENT-ID]` is the WordPress ID for the removed post's parent Department, can be found from WP Admin.
+		- `@1161.production` specifies that we want to run the wp-cli command on the nu.edu production environment.
 - References: [WP-CLI wp cache delete](https://developer.wordpress.org/cli/commands/cache/delete/) -- [VIP-CLI](https://docs.wpvip.com/technical-references/vip-cli/basic-usage/) -- [wp_cache_get()](https://developer.wordpress.org/reference/functions/wp_cache_get/) -- [NU.edu Programs cache usage](https://github.com/wpcomvip/nu-edu/blob/master/plugins/nuedu-core-functionality/inc/shortcodes/class-programs-list.php#L176)
 
 ## Future helpful implementations
