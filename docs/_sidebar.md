@@ -19,4 +19,6 @@
 		- [Code Editor Extensions](tools/code-editor-extensions.md)
 		- [Resources](tools/resources.md)
 		- [Web Tools](tools/web-tools.md)
-	- [Team Tips and Help](tips-and-help.md)
+	- **Tips and Help**
+		- [General](tips-and-help/general.md)
+		- [Scripts](tips-and-help/scripts.md)
