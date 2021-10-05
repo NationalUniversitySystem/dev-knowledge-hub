@@ -25,7 +25,7 @@ The following steps are based on the [Email Project Schedule Breakdown](https://
 		- The [email-dev](https://github.com/NationalUniversitySystem/email-dev) builds take ~30 seconds max and are hosted at [nus-email-dev.netlify.app](https://nus-email-dev.netlify.app/).
 - Workamajig Proofs
 	- Template Internal Review (CE_AS Internal Review)
-		- **Deliverable name**: HTML Template: Template Internal Review
+		- **Deliverable name**: HTML Template: Internal Review
 		- **Approval list**:
 			- Copy writer: Deb, Adam, Karaline, Andrea, Brooke, or other copy writer.
 			- Design: Alicia
