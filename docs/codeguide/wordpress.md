@@ -54,6 +54,39 @@ add_action( 'wp_enqueue_scripts', function() {
 	```
 
 
+### Enqueueing assets
+- When enqueuing **JS** assets, make sure to decide whether or not those files need to be loaded/ with `defer` or `async` attribute.
+- Load those with the `script_loader_tag` filter
+
+```php
+/**
+ * Allows enqueued scripts to be deferred or loaded asynchronously, thus preventing the
+ * page from being blocked by js calls.
+ *
+ * @param  string $tag    The <script> tag for the enqueued script.
+ * @param  string $handle The script's registered handle.
+ * @param  string $src    The script's source URL.
+ *
+ * @return string The formatted HTML script tag of the given enqueued script.
+ */
+add_action( 'script_loader_tag', function( $tag, $handle, $src ) {
+		$async_scripts = [
+			'script-handle-1',
+		];
+		if ( in_array( $handle, $async_scripts, true ) ) {
+			return str_replace( ' src', ' async="async" src', $tag );
+		}
+
+		$defer_scripts = [
+			'script-handle-2',
+			'script-handle-3',
+		];
+		if ( in_array( $handle, $defer_scripts, true ) ) {
+			return str_replace( ' src', ' defer="defer" src', $tag );
+		}
+}, 10, 3 );
+```
+
 ---
 
 ## Admin side (content management)
