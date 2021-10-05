@@ -22,3 +22,4 @@
 	- **Tips and Help**
 		- [General](tips-and-help/general.md)
 		- [Scripts](tips-and-help/scripts.md)
+		- [HTTPS localhost](tips-and-help/https-localhost.md)
