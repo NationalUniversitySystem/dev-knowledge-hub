@@ -8,12 +8,12 @@
 		- [PHP](codeguide/php.md)
 		- [WordPress](codeguide/wordpress.md)
 	- **Workflows**
-		- [Release Procedures](workflows/release.md)
-		- [Plugin Updates](workflows/plugin-updates.md)
-		- [Local Environment Import](workflows/local-environment-import.md)
 		- [Email Builds](workflows/email.md)
-		- [Program Updates](workflows/program-updates.md)
+		- [Local Environment Import](workflows/local-environment-import.md)
 		- [Partnership Pages](workflows/partnership-pages.md)
+		- [Plugin Updates](workflows/plugin-updates.md)
+		- [Program Updates](workflows/program-updates.md)
+		- [Release Procedures](workflows/release.md)
 	- **Tools**
 		- [Code Editor Extensions](tools/code-editor-extensions.md)
 		- [Resources](tools/resources.md)
