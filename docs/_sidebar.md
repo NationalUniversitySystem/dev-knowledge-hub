@@ -14,6 +14,7 @@
 		- [Plugin Updates](workflows/plugin-updates.md)
 		- [Program Updates](workflows/program-updates.md)
 		- [Release Procedures](workflows/release.md)
+		- [WPVIP Development](workflows/vip-development.md)
 	- **Tools**
 		- [Code Editor Extensions](tools/code-editor-extensions.md)
 		- [Resources](tools/resources.md)
