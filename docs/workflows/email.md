@@ -29,7 +29,7 @@ The following steps are based on the [Email Project Schedule Breakdown](https://
 		- **Approval list**:
 			- Copy writer: Deb, Adam, Karaline, Andrea, Brooke, or other copy writer.
 			- Design: Alicia
-			- CE Email: Lizzy || April
+			- CE Email: April
 			- Account Manager:
 				- NU, NUS & NUVHS: Gabby || Megan
 				- NCU & CityU: Denisse
@@ -44,7 +44,7 @@ The following steps are based on the [Email Project Schedule Breakdown](https://
 			- NCU & CityU: Denisse
 			- The Programs (Harmony - Fundraising Academy - Inspire): Kirsten
 			- NUS HR Emails: Danielle
-		- **Notifications**: yourself, Juvi, Lizzy || April, Lynda || Danielle, Alicia, whoever wrote the copy, & the person from option above.
+		- **Notifications**: yourself, Juvi, April, Lynda || Danielle, Alicia, whoever wrote the copy, & the person from option above.
 		- **Deliverable file**: Use the URL from Email tool.
 	- Final Proofread - Review
 		- **Deliverable name**: HTML Template: Final Proofread
