@@ -9,6 +9,7 @@
 		- [WordPress](codeguide/wordpress.md)
 	- **Workflows**
 		- [Email Builds](workflows/email.md)
+		- [General Content Updates](workflows/general-content-updates.md)
 		- [Local Environment Import](workflows/local-environment-import.md)
 		- [Partnership Pages](workflows/partnership-pages.md)
 		- [Plugin Updates](workflows/plugin-updates.md)
