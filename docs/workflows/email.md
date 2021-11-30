@@ -27,9 +27,9 @@ The following steps are based on the [Email Project Schedule Breakdown](https://
 	- Template Internal Review (CE_AS Internal Review)
 		- **Deliverable name**: HTML Template: Internal Review
 		- **Approval list**:
-			- Copy writer: Deb, Adam, Karaline, Andrea, Brooke, or other copy writer.
-			- Design: Alicia
-			- CE Email: April
+			- Copy writer: Adam, Karaline, Andrea, Brooke, or other copy writer.
+			- Design: Joey
+			- CE Email: Austin || April
 			- Account Manager:
 				- NU, NUS & NUVHS: Gabby || Megan
 				- NCU & CityU: Denisse
@@ -42,9 +42,11 @@ The following steps are based on the [Email Project Schedule Breakdown](https://
 		- **Approval list**:
 			- NU, NUS & NUVHS: Gabby || Megan
 			- NCU & CityU: Denisse
-			- The Programs (Harmony - Fundraising Academy - Inspire): Kirsten
+			- The Programs:
+    			- Harmony: Amanda Rothengast & Kirsten (in this order)
+    			- Fundraising Academy: Christine Kim & Kirsten (in this order)
 			- NUS HR Emails: Danielle
-		- **Notifications**: yourself, Juvi, April, Lynda || Danielle, Alicia, whoever wrote the copy, & the person from option above.
+		- **Notifications**: yourself, Juvi, Austin || April, Lynda || Danielle, Joey, whoever wrote the copy, & the person from option above.
 		- **Deliverable file**: Use the URL from Email tool.
 	- Final Proofread - Review
 		- **Deliverable name**: HTML Template: Final Proofread
@@ -67,5 +69,5 @@ The following steps are based on the [Email Project Schedule Breakdown](https://
 	- Under Emails menu: Create an Email > Blank HTML Email > paste code > add "From" options (name & email from deck) > save )
 - Save in the correct location:
 	- [Google Drive](https://drive.google.com/drive/folders/1QmKy2TpwRX23dFknkixXDEHUb_eAkcdY?usp=sharing) (HTML file and image(s))
-- Delete folder from [email-dev](https://github.com/NationalUniversitySystem/email-dev) repo.
 - Send confirmation in Jig.
+- Delete folder from [email-dev](https://github.com/NationalUniversitySystem/email-dev) repo once the email has been scheduled.
