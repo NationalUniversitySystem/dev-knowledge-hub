@@ -28,7 +28,7 @@ The following steps are based on the [Email Project Schedule Breakdown](https://
 		- **Deliverable name**: HTML Template: Internal Review
 		- **Approval list**:
 			- Copy writer: Adam, Karaline, Andrea, Brooke, or other copy writer.
-			- Design: Joey
+			- Design: Joey, Fretz, Kristen Yeung or other designer.
 			- CE Email: Austin || April
 			- Account Manager:
 				- NU, NUS & NUVHS: Gabby || Megan
@@ -57,14 +57,17 @@ The following steps are based on the [Email Project Schedule Breakdown](https://
 - Email Template prep
 	- Upload images to ELQ (ELQ login > components > images).
 	- Replace image URLs in template.
-- Test email template on [Acid](https://www.emailonacid.com/) (fix issues)
-	- Use the name of the project for the *subject line* so it is easy to reference in the future.
+- Test email template on [Acid](https://www.emailonacid.com/) even if it's one you've used before!
+	- To run a manual test, click on **Email Testing** under "Other Tools" from the navigation bar ([screenshot](https://media.emailonacid.com/wp-content/uploads/2021/04/seedlist1.png)).
+	- Use the name of the project for the *subject line* so it is easy to reference in the future ([screenshot](https://media.emailonacid.com/wp-content/uploads/2021/04/seelist3..png)).
 	- Make sure the tests that ran include the following (should already be included in default settings for account):
 		- iOS and Android mobile devices
 		- Tablet
 		- Mac Desktop Outlook and Mail
 		- Windows Outlook and another mail client
 		- Dark mode tests
+    - We have created a custom profile for our tests called **NUS Test profiles** ([screenshot](https://media.emailonacid.com/wp-content/uploads/2021/04/seedlist6.png))
+    - Click **Run Email Test** ([screnshot](https://media.emailonacid.com/wp-content/uploads/2021/04/seedlist-7.png))
 - Upload and save template to Eloqua under the correct folder location (i.e. All > NU > Newsletter > [Workamajig number & job name])
 	- Under Emails menu: Create an Email > Blank HTML Email > paste code > add "From" options (name & email from deck) > save )
 - Save in the correct location:
