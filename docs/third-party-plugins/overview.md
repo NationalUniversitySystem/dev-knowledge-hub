@@ -1,4 +1,8 @@
-# Plugin updates procedures
+# Third Party Plugins
+
+As a general rule, almost always better to custom-code plugin functionality (site security, performance, compatability, etc other reasons).
+
+## Plugin update procedures
 
 Because we are using Git, code is lockdown and plugins cannot be updated in the dashboard.
 As best practices go, this is so that no one can update plugins on the production environment without any initial approved testing.
@@ -12,7 +16,7 @@ When updating plugins there are a few main methods:
 - Update plugin via admin dashboard locally.
 - Composer dependencies update.
 
-## Download from source
+### Download from source
 Straight forward manual method of updating. Usually reserved for premium plugins like [Gravity Forms](https://www.gravityforms.com/).
 - Download plugin from website.
 - Install locally and test.
@@ -20,14 +24,14 @@ Straight forward manual method of updating. Usually reserved for premium plugins
 - Commit with message structure "Update {Plugin Name} plugin vX.X.X -> vX.X.X".
 - When doing PR into `develop`, if possible, in the **Description** area include the Changelog or a link to the changelog.
 
-## Update plugin via admin dashboard locally
+### Update plugin via admin dashboard locally
 The more traditional way of updating WP plugins.
 - In the Plugins page for the site (or network page for MU installs), update one plugin per Pull Request.
 - Branch off `develop` using branch naming convention `plugins/{plugin-slug}`.
 - Commit with message structure "Update {Plugin Name} plugin vX.X.X -> vX.X.X".
 - When doing PR into `develop`, if possible, in the **Description** area include the Changelog or a link to the changelog.
 
-## Composer dependencies update
+### Composer dependencies update
 In the root of the project files there _should_ be a composer.json file with project dependencies.
 These will include plugins and sometimes one or more of our own skeleton/parent themes.
 

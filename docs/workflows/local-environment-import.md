@@ -1,5 +1,14 @@
 # Local Environment Import
 
+[NOTE below info may be outdated]
+
+[@todo: Add description for WPVIP's docker-based local dev environment tool]
+
+
+- Set up local environment for WPVIP development.
+  - [WPVIP's guide to setup local environment](https://docs.wpvip.com/how-tos/local-development/)
+  - [Our team's code standards](https://github.com/NationalUniversitySystem/nusa-code-standards). "All code in any code-base should look like a single person typed it, no matter how many people contributed".
+
 Here are some helpful steps and info to import a WPVIP site's database (DB) into a local environment so that devs can work with data that is as close as possible to the live environment.
 
 - Download database(s) from [VaultPress](https://dashboard.vaultpress.com/).

@@ -1,0 +1,3 @@
+# Redirects & Vanity URLs
+
+Placeholder

@@ -1,5 +1,7 @@
 # Program Updates
 
+[NOTE below content is from prior dev documentation. Might be worthwhile to update with notes about our current "hero" program template and any notes/tips/tricks for converting old template programs to new templates]
+
 On NU.edu there are specific steps and details that anyone updating a program should be aware and attentive to.
 
 ## Adding a program
