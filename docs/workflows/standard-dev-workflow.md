@@ -1,6 +1,6 @@
 # Development Workflow
 
-[NOTE info below may be outdated]
+?> _TODO_ Below content is from prior dev documentation, may be outdated.
 
 ----------------------------------------------------------------------
 

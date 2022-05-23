@@ -4,7 +4,7 @@ We use a third-party plugin **FieldManager** to create custom fields on the WP c
 
 FieldManager documentation: https://fieldmanager.org/docs/fields/
 
-Fields are stored to the $wpdb as post metadata, and thus can be called in the front-end via the WP `get_post_meta()` function.
+Fields are stored to the `$wpdb` as post metadata, and thus can be called in the front-end via the WP `get_post_meta()` function.
 
 **Note**: Many custom meta fields on various content editor pages are legacy items that are not in use anymore. It might be a good future project to audit these fields to identify & remove ones that are no longer in use.
 

@@ -1,6 +1,6 @@
 # Partnership page workflow:
 
-[NOTE below content might be out-of-date]
+?> _TODO_ Below content is from prior dev documentation. May be out-of-date.
 
 ## NU (WES):
 

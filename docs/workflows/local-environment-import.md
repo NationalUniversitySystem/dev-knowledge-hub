@@ -1,8 +1,8 @@
 # Local Environment Import
 
-[NOTE below info may be outdated]
+?> _TODO_ Below content is from prior dev documentation, may be outdated.
 
-[@todo: Add description for WPVIP's docker-based local dev environment tool]
+?> _TODO_ Add description for WPVIP's docker-based local dev environment tool
 
 ----------------------------------------------------------------------
 

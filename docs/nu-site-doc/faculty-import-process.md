@@ -1,8 +1,10 @@
 # Faculty Import
 
-**Important**: The *only* updates we should make to Faculty post types via wp-admin is to add or change a headshot. Any other changes will be overwritten. Headshots can be updated via the standard 'featured image' for a given post.
+!> **Important**: The *only* updates we should make to Faculty post types via wp-admin is to add or change a headshot. Any other changes will be overwritten.
 
 **If a faculty member is requesting an update (other than headshot) to their profile page on nu.edu, tell them they need to make the change in SOAR and the updates will auto-populate after about a week.**
+
+Headshots can be manually added/changed via the standard 'featured image' functionality within a given Faculty post.
 
 The content for Faculty post types is pulled automatically from SOAR, via an API. In order to update this, we need to manually hit the API endpoint once per week.
 

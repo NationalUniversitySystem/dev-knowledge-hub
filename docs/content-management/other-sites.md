@@ -1,5 +1,7 @@
 # Other Sites
 
+Quick notes regarding content management for other sites we manage. For more in-depth information about the following sites, visit the [Other Sites Section](/other-sites/site-inventory.md).
+
 ## Harmony SEL
 - Events ("Webinars" -- I think for these, it's critical that you tag events specifically as a webinar. That might be a different SEC site though)
 	- Also for one of the SEC sites, we need to manually re-visit AFTER each event takes place, and manually move it to 'past webinars'. Future development project to automate that.
