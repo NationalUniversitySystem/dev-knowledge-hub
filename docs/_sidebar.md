@@ -35,6 +35,7 @@
 		- [Curriqunet API](nu-site-doc/curriqunet-api.md)
 		- [Optimizely](nu-site-doc/optimizely.md)
 		- [SOAR Application](nu-site-doc/soar-application.md)
+		- [LinkedIn Token](nu-site-doc/linkedin-token.md)
 	- **NU Custom Plugins**
 		- [GravityForms - DoublePositive](nu-plugins-docs/gf-doublepositive.md)
 		- [GravityForms - Fallback](nu-plugins-docs/gf-fallback.md)
@@ -59,6 +60,7 @@
 		- [VIP-CLI](wpvip/vip-cli.md)
 		- [Links](wpvip/links.md)
 	- **3rd Party Services/Integrations**
+		- [Logins](third-party-services/overview.md)
 		- [Cloudflare](third-party-services/cloudflare.md)
 		- [SiteImprove](third-party-services/siteimprove.md)
 		- [Algolia](third-party-services/algolia.md)
