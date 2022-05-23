@@ -57,6 +57,7 @@
 	- **WPVIP**
 		- [Overview](wpvip/overview.md)
 		- [VIP-CLI](wpvip/vip-cli.md)
+		- [Links](wpvip/links.md)
 	- **3rd Party Services/Integrations**
 		- [Cloudflare](third-party-services/cloudflare.md)
 		- [SiteImprove](third-party-services/siteimprove.md)

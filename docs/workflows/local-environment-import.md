@@ -4,6 +4,7 @@
 
 [@todo: Add description for WPVIP's docker-based local dev environment tool]
 
+----------------------------------------------------------------------
 
 - Set up local environment for WPVIP development.
   - [WPVIP's guide to setup local environment](https://docs.wpvip.com/how-tos/local-development/)

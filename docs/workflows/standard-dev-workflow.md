@@ -2,6 +2,8 @@
 
 [NOTE info below may be outdated]
 
+----------------------------------------------------------------------
+
 We use Github to track and host our projects through WPVIP.
 
 All our work gets done locally first, then **merged** into the `preprod` branch for environment QA and for sending links for approval.
