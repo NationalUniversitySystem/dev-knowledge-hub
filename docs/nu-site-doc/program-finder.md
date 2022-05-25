@@ -12,4 +12,4 @@ Example of shortcode to integrate into a page:
 
 ## Shortcode Generator
 
-<iframe width="100%" height="300" src="https://jsfiddle.net/danscottnu/fyx7Lkop/16/embedded/result/" allow="clipboard-read clipboard-write" frameborder="0"></iframe>
+<iframe width="100%" height="300" src="https://jsfiddle.net/danscottnu/fyx7Lkop/17/embedded/result/" allow="clipboard-read clipboard-write" frameborder="0"></iframe>
