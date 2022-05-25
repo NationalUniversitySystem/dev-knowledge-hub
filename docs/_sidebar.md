@@ -48,10 +48,20 @@
 		- [etc...](#)
 	- **3rd Party Plugins**
 		- [Overview](third-party-plugins/overview.md)
-		- [AMP (google)](third-party-plugins/amp.md)
+		- [AMP](third-party-plugins/amp.md) 
+		- [Better Search Replace](third-party-plugins/better-search-replace.md) 
 		- [Cloudflare](third-party-plugins/cloudflare.md)
+		- [Enable Media Replace](third-party-plugins/enable-media-replace.md) 
+		- [Export All URLs](third-party-plugins/export-all-urls.md) 
+		- [Fieldmanager](third-party-plugins/fieldmanager.md) 
 		- [Gravity Forms](third-party-plugins/gravity-forms.md)
-		- [etc...](#)
+		- [Post Type Switcher](third-party-plugins/post-type-switcher.md)
+		- [Redirection](third-party-plugins/redirection.md)
+		- [Widget Logic](third-party-plugins/widget-logic.md)
+		- [WP Search Algolia](third-party-plugins/wp-search-algolia.md)
+		- [Yoast Duplicate Post](third-party-plugins/yoast-duplicate-post.md)
+		- [Yoast SEO](third-party-plugins/yoast.md)
+
 	- **RFI Forms**
 		- [Overview](rfi-forms/overview.md)
 		- [Data routing](rfi-forms/data-routing.md)

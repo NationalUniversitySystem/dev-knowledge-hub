@@ -8,6 +8,9 @@ Quick notes regarding content management for other sites we manage. For more in-
 - Press Releases
 - Lots of the front-page content lives in the WP Customizer, rather than the standard content editor.
 
+Account Director: Kirsten Hansen
+Client point-of-contact: Amanda Rothengast
+
 ## NUSystem.org
 - Press Releases
 	- Need to manually change 'author' after creating post
