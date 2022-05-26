@@ -1,14 +1,107 @@
 # Local Environment Import
 
-?> _TODO_ Below content is from prior dev documentation, may be outdated.
-
-?> _TODO_ Add description for WPVIP's docker-based local dev environment tool
+!> Important: *Most* of our live sites are setup as multisite installations. Even sites that don't actually have any subdomains are generally still installed as a multisite. This is often important to specify when setting up a local environment as there are some behind-the-scenes differences with how WordPress handles multisites. We don't want a situation where a new feature is developed locally, only to have it break when pushed live because of the multisite aspect.
 
 ----------------------------------------------------------------------
 
-- Set up local environment for WPVIP development.
-  - [WPVIP's guide to setup local environment](https://docs.wpvip.com/how-tos/local-development/)
-  - [Our team's code standards](https://github.com/NationalUniversitySystem/nusa-code-standards). "All code in any code-base should look like a single person typed it, no matter how many people contributed".
+## WPVIP Local Dev Tool
+
+WPVIP recommends setting up a local development environment with the VIP Local Development Environment feature built into VIP-CLI. This has the benefit of making it easy to create a local environment that is nearly identical to our live site. This environment is based on Docker, however only minimal knowledge of Docker is actually required.
+
+Please see [WPVIP - Create a VIP Local Development Environment](https://docs.wpvip.com/how-tos/local-development/use-the-vip-local-development-environment/) for WPVIP's official documentation. This tool is under constant development by the WPVIP, so refer to that link for the most up-to-date info. That being said, WPVIP's documentation is also usually not very clear, so the below is a walkthrough example to be used in conjunction with the official documentation.
+
+### Below steps will focus on setting up a local environment for fundraising-academy.org (nu-sip-org)
+
+1) Check all prerequisites required in the WPVIP documentation. i.e. VIP-CLI, Docker Desktop, etc.
+
+2) Clone our site's [Github repo](https://github.com/wpcomvip/nu-sip-org) to your local computer. Ideally to your desktop or somewhere that is easy to access.
+
+3) Via command line, run `vip @1570.production dev-env create --slug=sip-org` to create your local dev environment.
+	- This launches the VIP dev env setup wizard
+	- `@1570.production` tells the tool we want to create a local environment that matches the **production** version of our nu-sip-org site (which is VIP app ID **1570**)
+		- Running `vip app list` will give a list of all of our sites along with their VIP app ID #'s
+	- `--slug=sip-org` tells the tool to give a certain name to your local environment. You can call this anything you want, but it's generally best to have it match with whatever we call it on WPVIP.
+	- All of our sites use WordPress **v6.0** and PHP **v7.4** as of May 2022, but double check the live site you're cloning to make sure you're using the same versions.
+	- Prompt to redirect to live site for media files -- **true** (this is recommended as it means you won't have to pull images locally)
+	- Prompt for vip-go-mu-plugins -- **image** (this is code that WPVIP runs on the back-end of all sites)
+	- Prompt for source site-code -- **local** and paste the full folder path to the repo you cloned in Step 2
+	- Prompt for Enterprise Search -- **false** (I don't think we use this on any of our sites)
+	- Prompt for phpMyAdmin -- **true** but it's up to you. I personally like having access to it, but if you have a different preferred method of interacting with the database then go for it.
+	- Prompt for XDebug? -- ?? [this is a newer feature WPVIP recently added, not sure. @todo investigate]
+
+4) Run `vip dev-env --slug=sip-org start` to launch the local environment you just created.
+	- This may take few minutes to run, as it is spinning up a docker container, pulling down wordpress, pulling down the vip-mu-plugins, and setting up the environment. 
+		- In the future you can run the command with the `-S` flag to skip rebuilding, for a somewhat faster load time.
+
+5) We now need to import the database to our local environment. [Please see the full WPVIP tutorial on this here](https://docs.wpvip.com/how-tos/dev-env-add-content/).
+	- Export the most recent database backup from WPVIP dashboard (or VaultPress). Note that for nu.edu it will probably take awhile to 'prepare' the file for download, as the database is very large.
+	- The export file will be a .gzip and needs to be unzipped until you're able to access the .sql file(s)
+		- If using VaultPress each table is exported as its own file and you need to concat them into a single file.
+		- If using WPVIP dashboard, export is a single .sql file that will have a timestamped name. To make things easier in the CLI, rename to **sip-org-db.sql**
+	- Open the .sql file and **delete** any existing data for the **'wp_users'** and **'wp_usermeta'** tables. 
+		- The easy way to do this is to CTRL+F and search for your @nu.edu email. Assuming you have an account on the live site, this will bring you to the relevant sections in the .sql file. 
+		- This is important because WPVIP's dev-env tool creates a special "vipgo" user account for our local dev environment, and we don't want to overwrite that.
+![Faculty Import](../_images/sql-delete.png)
+	- For sites with larger databases, can also delete the entire **'wp_gf_entry_meta'** and **'wp_gf_entry'** tables. We don't need these locally. For nu.edu the import process might actually time-out if you don't delete these tables first.
+	- Run `vip dev-env --slug=sip-org import sql sip-org-db.sql --search-replace="https://fundraising-academy.org,http://sip-org.vipdev.lndo.site`
+		- This imports our database, and changes our "live" URL to instead be our localhost URL.
+	- Run `vip dev-env --slug=sip-org exec -- wp search-replace --url=www.fundraising-academy.org www.fundraising-academy.org sip-org.vipdev.lndo.site`
+		- This step is needed for multisite installations. This takes the database we just imported, selects a specific sub-site, and then updates all instances of that URL to point at our localhost url. 
+		- For multisites with additional subsites, repeat this step for each subsite (i.e. `--url=info.nu.edu info.nu.edu nu-edu.vipdev.lndo.site`)
+	- Run `vip dev-env --slug=sip-org exec -- wp cache flush`
+	- Alternatively, you can also import the database via phpmyadmin or another tool of your choice. Be sure to import to the database named 'wordpress'. Note that you will need to manually perform the search & replace functions above.
+
+6) Visit your local URL admin: `sip-org.vipdev.lndo.site/wp-admin` (or whatever URL what generated when you ran step #4 above)
+	- Login username `vipgo` password `password`
+
+7) Run `vip dev-env --slug=sip-org exec -- wp super-admin add vipgo`
+	- vipgo user is automatically a super-admin on single-site installs, but for multisite you need to manually add.
+	- To verify this was successful, reload the wp-admin page. You should be able to see 'Plugins' on the menu, and the top admin bar under 'My Sites' should have a 'Network Admin' option.
+
+8) Build theme assets
+	- At this point, visiting your local site `http://sip-org.vipdev.lndo.site/` will show the correct content, but with severely broken styling. 
+	- Navigate to `themes\sip` and run `npm install` and then `npm run gulp`
+		- This will build our CSS & JS assets, which are in our `/themes/sip/assets/` folder. This folder is excluded from git, as we use CircleCI for our build process on the live sites.
+		- This also launches its own 'development server' localhost process, but since we're running our environment via WPVIP/docker, we can close the process once the build is complete.
+	- At this point, your local site should be *nearly* identical to the live site.
+		- Certain images are going to be missing, and that's (probably) okay. During the `dev-env create` setup wizard, we had an option for `--media-redirect-domain`. This enables our local site to pull images from the live site, but it only works for images that are attached/loaded via wordpress (i.e. featured images, or anything loaded via wp_get_attachment, etc). Images that are hard-coded as HTML or manually set as background-image via CSS will usually not load locally. This could probably be fixed, but unless it is mission-critical for a specific dev task, it's probably not worth the effort. Note that you can still upload images to the local site via WP-Admin and they will be available to use as you would on the live site.
+
+9) Certain custom plugins *might* require assets to be built
+	- For sip-org used in above examples, not necessary.
+	- For nu.edu, definitely the react-based plugin, probably some others too. For each plugin, navigate to the folder and run `npm install` and `npm run build`
+
+10) At this point your local development environment is now officially up and running.
+	- To stop your dev environment: `vip dev-env --slug=sip-org stop`
+	- To restart your dev environment: `vip dev-env --slug=sip-org start`
+	- To view all your available local dev environments: `vip dev-env list`
+	- To view all vip dev env commands: `vip dev-env -h`
+
+11) Add our [internal 'dev toolbox' plugin pack](https://github.com/NationalUniversitySystem/dev-toolbox) to your local site's repo, by cloning the repo into the /client-mu-plugins/ folder.
+	- Follow steps included in the repo's readme.
+	- These files should already be excluded from git via gitignore, but if they are not, then add them.
+	- @TODO Some of these dev plugins are a bit outdated, or now rendered obsolete based on functionality we get elsewhere. Probably good idea to revisit these at some point. 
+		- For example 'show-template' and 'footer-queries' are now included in our standard query monitor. Also 'vip-activate-qm' is now included in all WPVIP sites by default.
+	- Included: Helper function to stop links from trying to force https on localhost
+	- Included: Helper function to create `write_to_log()` function, which makes for easy PHP error logging similar to console.log() in javascript.
+
+12) If you haven't already, install our [Code Standards Package](https://github.com/NationalUniversitySystem/nusa-code-standards) on your system.
+	- This is important because, in addition to our own internal code standards, WPVIP enforces us to adhere to certain wordpress-specific standards.
+	- After installing the packages from Github, install  the VSCode extension 'phpcs' -- this will enable VScode to show you errors/warnings in your code editor in real time.
+
+
+**Additional Notes for WPVIP Local Dev Environment:**
+- Wordpress Debug Log: can be found at C:\Users\\[user]\\.local\share\vip\dev-environment\sip-org\log (windows specific)
+- wp-config.php can be found at: C:\Users\\[user]\\.local\share\vip\dev-environment\sip-org\config (windows specific)
+	- Certain sites/plugins might require certain 'development constants' to be set here, i.e. `define( 'JETPACK_DEV_DEBUG', true );` 
+
+
+--------------------------------------------------------------------------------
+
+## VVV setup
+
+> Old documentation below, might still work.
+
+[WPVIP - Setup VVV for VIP Development](https://docs.wpvip.com/how-tos/local-development/set-up-vvv/)
 
 Here are some helpful steps and info to import a WPVIP site's database (DB) into a local environment so that devs can work with data that is as close as possible to the live environment.
 
