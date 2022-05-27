@@ -11,6 +11,7 @@
 - [A360 Docs](https://hub.accessible360.com/kb/articles) (must be logged in)
 - [a11y Project](https://www.a11yproject.com/)
 - [Seven ways to test for accessibility of your web site with browser Developer Tools](https://christianheilmann.com/2021/01/11/seven-ways-to-test-for-accessibility-of-your-web-site-with-browser-developer-tools/)
+- [WPVIP recommendations](wpvip/a11y.md)
 
 ---
 
