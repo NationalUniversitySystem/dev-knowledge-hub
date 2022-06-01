@@ -11,14 +11,14 @@ On NU.edu there are specific steps and details that anyone updating a program sh
 	- The "Why NU?" and quote sections trickle down from College -> Department -> Program, so it's not absolutely necessary to define those sections.
 	- The "Opportunity Scholarship" section is managed as a Widget in the admin with exclusion handled through the Widget Logic plugin.
 - If the program belongs to the school **Workforce Education Solutions Training & Development** (WES T&D), previously known as Extended Learning, then please also **add** it to the field of program options in the form that is specific to WES T&D / EL.
-- Update the [Google Sheet](https://docs.google.com/spreadsheets/d/1p6620uGHOfmMa74E8X6vRXxZCVzLto72sg2p_5ESDtU/edit?pli=1).
+- Update the [Google Sheet](https://docs.google.com/spreadsheets/d/1kE1lnYFgwN1gENHdYV_Tq75_zDeQ0LkRacOorCFs28g/edit#gid=0).
 
 ## Moving a program
 If a program is being moved from one department to another, please be mindful of the following:
 - SEO: There may be links out there or Google might take time to update it's links in the Google results pages so add a redirect when moving a program.
 - Update any references to the previous College or Department.
 - If the program is being added to the school **Workforce Education Solutions Training & Development** (WES T&D), previously known as Extended Learning, then please also **add** it to the field of program options in the form that is specific to WES T&D / EL.
-- Update the [Google Sheet](https://docs.google.com/spreadsheets/d/1p6620uGHOfmMa74E8X6vRXxZCVzLto72sg2p_5ESDtU/edit?pli=1).
+- Update the [Google Sheet](https://docs.google.com/spreadsheets/d/1kE1lnYFgwN1gENHdYV_Tq75_zDeQ0LkRacOorCFs28g/edit#gid=0).
 
 ## Removing a program
 - In the WP admin for www.nu.edu, set the program's status to "Draft".
@@ -26,12 +26,12 @@ If a program is being moved from one department to another, please be mindful of
 - If the program belongs to the school **Workforce Education Solutions Training & Development** (WES T&D), previously known as Extended Learning, then please also remove it from the field of program options in the form that is specific to WES T&D / EL.
 - Remove any references to the program by doing a search for the full name of the program, and any known abbreviations, in the admin search(s). "Known abbreviations" include MA {program name} and M.A. {program name} for Master of Arts, RN for Registered Nurse, MBA for Master of Business Administration, etc.
 - Draft the program in the `info` subdomain as well.
-- Update the [Google Sheet](https://docs.google.com/spreadsheets/d/1p6620uGHOfmMa74E8X6vRXxZCVzLto72sg2p_5ESDtU/edit?pli=1).
+- Update the [Google Sheet](https://docs.google.com/spreadsheets/d/1kE1lnYFgwN1gENHdYV_Tq75_zDeQ0LkRacOorCFs28g/edit#gid=0).
 
 ## WP Caching
 - We use the [WP Object Cache](https://developer.wordpress.org/reference/functions/wp_cache_get/) to store & display Program data on Department pages ([example](https://www.nu.edu/ourprograms/collegeoflettersandsciences/mathematicsandnaturalsciences/)), in order to reduce unnecessary WP Queries and boost page speed.
 - This means that after we remove a Program, we need to update the cache. Otherwise the Program will continue to be shown on Department pages.
-- We have functionality built-in to the Programs CPT to auto-flush the cache whenever a Program is published/updated/removed. **However** if for some reason we still need to manually flush the cache, do the following steps: 
+- We have functionality built-in to the Programs CPT to auto-flush the cache whenever a Program is published/updated/removed. **However** if for some reason we still need to manually flush the cache, do the following steps:
 	- Rather than flushing the cache for the entire site, we can delete the cache object for the specific Program we just removed:
 		- via WP-CLI: `wp cache delete programs_list_[DEPARTMENT-ID]`
 		- via VIP-CLI: `vip @1161.production -- wp cache delete programs_list_[DEPARTMENT-ID]`
