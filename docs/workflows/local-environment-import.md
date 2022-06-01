@@ -39,7 +39,7 @@ Please see [WPVIP - Create a VIP Local Development Environment](https://docs.wpv
 		- If using VaultPress each table is exported as its own file and you need to concat them into a single file.
 		- If using WPVIP dashboard, export is a single .sql file that will have a timestamped name. To make things easier in the CLI, rename to **sip-org-db.sql**
 	- Open the .sql file and **delete** any existing data for the **'wp_users'** and **'wp_usermeta'** tables. 
-		- The easy way to do this is to CTRL+F and search for your @nu.edu email. Assuming you have an account on the live site, this will bring you to the relevant sections in the .sql file. 
+		- The easy way to do this is to CTRL+F and search for **wp_users** and **wp_usermeta**
 		- This is important because WPVIP's dev-env tool creates a special "vipgo" user account for our local dev environment, and we don't want to overwrite that.
 ![Faculty Import](../_images/sql-delete.png)
 	- For sites with larger databases, can also delete the entire **'wp_gf_entry_meta'** and **'wp_gf_entry'** tables. We don't need these locally. For nu.edu the import process might actually time-out if you don't delete these tables first.
@@ -78,6 +78,7 @@ Please see [WPVIP - Create a VIP Local Development Environment](https://docs.wpv
 
 11) Add our [internal 'dev toolbox' plugin pack](https://github.com/NationalUniversitySystem/dev-toolbox) to your local site's repo, by cloning the repo into the /client-mu-plugins/ folder.
 	- Follow steps included in the repo's readme.
+		- Important: Need to add to wp-config.php: `define( 'WP_ENV', 'local' );`
 	- These files should already be excluded from git via gitignore, but if they are not, then add them.
 	- @TODO Some of these dev plugins are a bit outdated, or now rendered obsolete based on functionality we get elsewhere. Probably good idea to revisit these at some point. 
 		- For example 'show-template' and 'footer-queries' are now included in our standard query monitor. Also 'vip-activate-qm' is now included in all WPVIP sites by default.
@@ -94,6 +95,11 @@ Please see [WPVIP - Create a VIP Local Development Environment](https://docs.wpv
 - wp-config.php can be found at: C:\Users\\[user]\\.local\share\vip\dev-environment\sip-org\config (windows specific)
 	- Certain sites/plugins might require certain 'development constants' to be set here, i.e. `define( 'JETPACK_DEV_DEBUG', true );` 
 
+**Troubleshooting**
+Links on my local dev are https and my browser throws an error when trying to navigate.
+- WP Database, `wp_options` table, make sure `option_name: siteurl` and `option_name: home` values are set to **http**://[url] instead of **https**://[url]
+	- If you change this, need to navigate to WP Admin>Permalinks and click 'save changes' without actually changing anything. This will rewrite your permalinks to be http
+- Or, there are also methods to get SSL on your localhost
 
 --------------------------------------------------------------------------------
 
