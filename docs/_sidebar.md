@@ -36,6 +36,7 @@
 		- [Optimizely](nu-site-doc/optimizely.md)
 		- [SOAR Application](nu-site-doc/soar-application.md)
 		- [LinkedIn Token](nu-site-doc/linkedin-token.md)
+		- [Submitting to Data OPS](nu-site-doc/dataops.md)
 	- **NU Custom Plugins**
 		- [GravityForms - DoublePositive](nu-plugins-docs/gf-doublepositive.md)
 		- [GravityForms - Fallback](nu-plugins-docs/gf-fallback.md)
