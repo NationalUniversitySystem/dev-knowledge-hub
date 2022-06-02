@@ -1,7 +1,7 @@
 # SOAR Application
 
 - Entries that are unsuccessful generate an automated "Error" email that gets sent to the dev team.
-- How to manually re-send unsuccessful submissions to SOAR
+- [How to manually re-send unsuccessful submissions to SOAR](https://nationaluniversitysystem.github.io/dev-knowledge-hub/#/nu-site-doc/soar-application?id=e-send-unsuccessful-submissions-to-soar)
 
 --------------------------------------------------------
 The below was copy/pasted from Mike's 'SOAR Maintenance Documentation' file on Sharepoint, dated 1/25/22
@@ -19,6 +19,8 @@ In order for the “Apply Now” CTAs to point to that page instead of the SOAR 
 
 Once IT is done with maintenance, an email will be received the next day (Sunday) and the same option can be checked off. This will trigger all the entries that were submitted at the Application form https://www.nu.edu/online-app/ to be sent to SOAR.
 
+### Re-send unsuccessful submissions to SOAR
+
 Some entries may fail due to time outs. In order to identify those entries, visit the following URL to see the form’s entries and check for empty values in the “**soarUUID**” column. https://www.nu.edu/wp-admin/admin.php?page=gf_entries&id=56
 
 There are two options to resubmit the entries:
@@ -29,6 +31,8 @@ Select all the entries that are missing the **"soarUUID"** and then select the *
 
 View an entry individually. There should be a meta box that will have a **"Submit to SOAR"** button.
 
-If successful, a “soarUUID” value will be returned and displayed for the entries.
+If successful, a `soarUUID` value will be returned and displayed for the entries.
 
 ![SOAR Maintenance](../_images/soar-maintenance-mode-3.png)
+
+!> For more details, please have a look to the [`nuedu-core-functionality`](https://github.com/wpcomvip/nu-edu/tree/master/plugins/nuedu-core-functionality) plugin. [SOAR Integration setup](https://github.com/wpcomvip/nu-edu/tree/master/plugins/nuedu-core-functionality/inc/soar)
