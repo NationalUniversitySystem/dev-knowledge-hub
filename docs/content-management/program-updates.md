@@ -1,10 +1,11 @@
 # Program Updates
 
-?> _TODO_ Below content is from prior dev documentation. Might be worthwhile to update with notes about our current "hero" program template and any notes/tips/tricks for converting old template programs to new templates
-
+?> _TODO_ Below content is from prior dev documentation. We should revisit and update once the new program page templates are live on the new site.
 On NU.edu there are specific steps and details that anyone updating a program should be aware and attentive to.
 
-## Adding a program
+## Adding a New Program
+!> **Important**: Program page URLs are custom generated based on college/department/degree. When creating a new program post, select an applicable 'Area of Study', 'Degree Type', and 'Academic Hook'. If Academic Hook is not visible on the content entry screen, populate the other two values and hit Publish/Update, and it should now be visible.
+
 - In the WP admin create the program in both `www` and `info` domains.
 	- Make sure it has a **Department**.
 	- No hero is necessary since (at the time of publishing this guide) the template file does not include a hero type image.

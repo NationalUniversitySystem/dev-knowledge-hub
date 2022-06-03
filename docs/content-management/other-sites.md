@@ -29,6 +29,8 @@ https://www.harmonysel.org/
 ## Inspire
 https://www.inspireteaching.org/
 ### Events ("Webinars")
+!> **Important**: Events on Inspire **do not** automatically change from 'upcoming' to 'past' after the event date passes. When creating a new event for Inspire, add a reminder to your outlook calendar for the day after the event, so you can re-visit and manually change the event to 'past webinars'. **@TODO** find a way to automate this like we do on our other sites
+
 - On this site, we use a plugin called [The Events Calendar](https://theeventscalendar.com/products/wordpress-events-calendar/) for anything related to events aka webinars.
 - It's critical that you tag events specifically as a webinar or past webinars.
 	- Webinars will be listed under the Upcoming Webinars section.
@@ -36,7 +38,6 @@ https://www.inspireteaching.org/
 
 ![Inspire Webinar Tags](../_images/Inspire_Webinar_Tags.png)
 
-- We need to manually re-visit AFTER each event takes place, and **manually** move it to 'past webinars'. To-do: future development project to automate that.
 
 #### SEC Contact Info
 - Account Director: Kirsten Hansen

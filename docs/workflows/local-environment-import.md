@@ -15,6 +15,7 @@ Please see [WPVIP - Create a VIP Local Development Environment](https://docs.wpv
 1) Check all prerequisites required in the WPVIP documentation. i.e. VIP-CLI, Docker Desktop, etc.
 
 2) Clone our site's [Github repo](https://github.com/wpcomvip/nu-sip-org) to your local computer. Ideally to your desktop or somewhere that is easy to access.
+	- Note: Since our site repo's are private, you will need to git clone via SSH. You'll need to configure your github account with an SSH key first.
 
 3) Via command line, run `vip @1570.production dev-env create --slug=sip-org` to create your local dev environment.
 	- This launches the VIP dev env setup wizard
@@ -41,10 +42,15 @@ Please see [WPVIP - Create a VIP Local Development Environment](https://docs.wpv
 	- Open the .sql file and **delete** any existing data for the **'wp_users'** and **'wp_usermeta'** tables. 
 		- The easy way to do this is to CTRL+F and search for **wp_users** and **wp_usermeta**
 		- This is important because WPVIP's dev-env tool creates a special "vipgo" user account for our local dev environment, and we don't want to overwrite that.
-![Faculty Import](../_images/sql-delete.png)
-	- For sites with larger databases, can also delete the entire **'wp_gf_entry_meta'** and **'wp_gf_entry'** tables. We don't need these locally. For nu.edu the import process might actually time-out if you don't delete these tables first.
+![SQL to delete](../_images/sql-delete.png)
+	- For sites with larger databases, can also delete the entire **'wp_gf_entry_meta'** and **'wp_gf_entry'** tables. We don't need these locally. For nu.edu the import process might actually time-out if you don't delete these tables first. Can also delete similar subsite tables, like wp_2_gf_entry_meta and wp_3_gf_entry_meta
+	- For nu.edu the database is very large, mostly because of gf_entry_meta rows. @TODO can we prune these on the live site?
+	- Also delete 'CREATE DATABASE' and 'USE...' lines (below command will fail with an error if not). On nu.edu can also delete _pantheon_heartbeat table.
 	- Run `vip dev-env --slug=sip-org import sql sip-org-db.sql --search-replace="https://fundraising-academy.org,http://sip-org.vipdev.lndo.site`
 		- This imports our database, and changes our "live" URL to instead be our localhost URL.
+		- If you get an error, it could be caused by NU's Carbon Black antivirus software (@todo check with help desk). Try omitting the `--search-replace=` flag and run again. Or import via phpmyadmin or another method.
+		- `vip dev-env --slug=nu-edu exec -- wp search-replace --all-tables https://www.nu.edu http://nu-edu.vipdev.lndo.site --dry-run`
+		- `vip dev-env --slug=nu-edu exec -- wp search-replace --url=www.nu.edu www.nu.edu http://nu-edu.vipdev.lndo.site --dry-run` 
 	- Run `vip dev-env --slug=sip-org exec -- wp search-replace --url=www.fundraising-academy.org www.fundraising-academy.org sip-org.vipdev.lndo.site`
 		- This step is needed for multisite installations. This takes the database we just imported, selects a specific sub-site, and then updates all instances of that URL to point at our localhost url. 
 		- For multisites with additional subsites, repeat this step for each subsite (i.e. `--url=info.nu.edu info.nu.edu nu-edu.vipdev.lndo.site`)
@@ -192,3 +198,40 @@ An issue you might run into when importing a site from production (or any other 
 - If this does not redirect, log in.
 - Navigate to the Settings -> Permalinks settings page.
 - Save/update settings without actually changing anything.
+
+
+
+-----------
+temp notes. Disregard.
+
+- import SQL
+- `vip dev-env --slug=nu-edu exec -- wp search-replace --url=info.nu.edu info.nu.edu nu-edu.vipdev.lndo.site/info`
+- `vip dev-env --slug=nu-edu exec -- wp search-replace --url=nu-edu.vipdev.lndo.site/info https://info.nu.edu nu-edu.vipdev.lndo.site/info`
+- `vip dev-env --slug=nu-edu exec -- wp cache flush --url=nu-edu.vipdev.lndo.site/info`
+- Need to restart dev-env
+- `vip dev-env --slug=nu-edu exec -- wp search-replace --all-tables https://nu-edu.vipdev.lndo.site/info http://nu-edu.vipdev.lndo.site/info`
+- 
+
+Maybe restart dev-env?
+
+
+wp_options
+http:// && no trailing slash; for both lines
+
+
+wp_site
+no-http, no trailing slash
+
+wp_sitemeta
+no-http, no trailing slash
+
+wp_blogs
+no-http, no trailing slash
+
+
+Although the root folder has composer.json, don't run composer install. Only for when updating specific plugins or installing new plugins.
+
+
+themes/national-university-hotb/
+npm install
+npm run build

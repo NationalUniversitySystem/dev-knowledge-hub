@@ -50,6 +50,6 @@ For more details, please have a look to the [`nuedu-core-functionality plugin`](
 !> When testing the App Step 1 form bear in mind that `preprod` and `production` are not synced so testing results may vary depending on the environment where doing the test. Also, do not use the same email address when submitting the form (e.g. test@test.com). Using the same email address won't create a new application in SOAR.
 
 ## Contact Info
-- Parker Sorense - Sr. Manager, Conversion Optimization: psorensen@nu.edu
+- Parker Sorensen - Sr. Manager, Conversion Optimization: psorensen@nu.edu
 - Brett Schultz - CWR - Independent Contractor Information Technology: bschultz@nu.edu (anything related to SOAR)
 - Claire Leong - AD, Enroll Proc Opt & Enable: cleong@nu.edu (anything related to DoublePositive)

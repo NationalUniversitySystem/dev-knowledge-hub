@@ -16,6 +16,7 @@
 		- [Press Releases](content-management/press-releases.md)
 		- [Terms & Conditions](content-management/terms-conditions.md)
 		- [Redirects & Vanity URLs](content-management/redirect-vanity-urls.md)
+		- [SEO](content-management/seo.md)
 		- [Other Sites](content-management/other-sites.md)
 	- **Dev Workflows**
 		- [Local Environment Setup](workflows/local-environment-import.md)

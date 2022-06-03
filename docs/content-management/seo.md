@@ -1,8 +1,6 @@
-## SEO
+# SEO
 
 For most of our SEO-related content updates, we can use Yoast. This usually consists of just updating the 'meta description' that gets displayed for a given page in Google search results. This can be accessed within the post content editor, 'Yoast SEO' dropdown section.
-
-?> @TODO Yoast has a reputation for being a very bloated plugin, and it seems like we're really only using it for search meta descriptions. If that's the case, do we really need Yoast? Or are there other features/benefits that I'm missing?
 
 ### Special Schema
 Example page: https://www.nu.edu/studentservices/nu-wellness/coronavirus/

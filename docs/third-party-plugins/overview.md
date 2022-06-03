@@ -1,15 +1,14 @@
 # Third Party Plugins
 
-As a general rule, almost always better to custom-code plugin functionality (site security, performance, compatability, etc other reasons).
+As a general rule, it's almost always better to custom-code plugin functionality as opposed to installing a third-party plugin. A big reason for this is site security, but there are typically also pretty significant performance considerations (third party plugins generally try to be 'everything to everyone' and thus usually include tons of unneeded features/bloat). 
+
+Third party plugins should be heavily vetted, and examined in terms of "internal ROI" -- for example, given that RFI forms are mission critical for us, and that those forms have a lot of moving parts between the front end and back end, and tons of edge cases across various browsers/etc, this is a case where it makes sense for us to use a reputable third-party plugin (gravity forms). Conversely, despite the fact that there are numerous 'event calendar' plugins available, the nature in which we use events on nu.edu makes it easier to just build it ourselves with a custom post type.
 
 ## Plugin update procedures
 
-Because we are using Git, code is lockdown and plugins cannot be updated in the dashboard.
-As best practices go, this is so that no one can update plugins on the production environment without any initial approved testing.
-Plugins should have Git changes reviewed and tested locally before any merge occurs.
-Make sure to:
-- Update only one plugin per Pull Request.
-- Include the PR title and number in [Release notes](https://github.com/NationalUniversitySystem/dev-knowledge-hub/wiki/Release-procedures).
+We have it set up so that plugins **cannot** be installed or updated via the wp-admin dashboard. This is to ensure that all plugin changes are tested in a local environment first, and then submitted as pull request via git.
+
+?> *@TODO* revisit plugin update procedures below
 
 When updating plugins there are a few main methods:
 - Download from source.

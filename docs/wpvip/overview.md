@@ -1,6 +1,6 @@
 # WPVIP
 
-WPVIP is our hosting provider.
+WPVIP is our hosting provider. It is the enterprise hosting service provided by Automattic, the company behind wordpress.
 
 ## Support Tickets
 Support Ticket URL: [https://wordpressvip.zendesk.com/hc/en-us/requests/new](https://wordpressvip.zendesk.com/hc/en-us/requests/new) (login required)
