@@ -1,5 +1,54 @@
 # Development Workflow
 
+The following guide will be geared towards nu.edu, but all of our affiliate sites essentially follow this as well.
+
+Our codebase is managed via GitHub -- https://github.com/wpcomvip/nu-edu
+
+
+## Dev Environments
+
+For nu.edu, in addition to our live site, we have two development environments:
+- DEVELOP: https://nu-edu-develop.go-vip.co/
+- PREPROD: https://nu-edu-preprod.go-vip.co/
+
+Each environment is its own standalone site, with its own codebase and its own database.
+
+- Each env has it's own 'branch' in our repo
+- Technically two branches, preprod & preprod-built
+	- This is because of our build process
+	- `preprod`, `develop` and `master` are what we create pull requests towards
+	- `preprod-built`, `develop-built`, and `master-built` are what are actually shown on the live site
+	- GitHub actions + CircleCI for build process [expand more on this, maybe in a different section]
+
+Important! Preprod is a standalone QA/test environment, while Devlop is our staging server before going live. This naming convention/workflow is a bit different than what most companies use. This is something that was set up a long time ago, and at this point it would be far more trouble than it's worth to try and change the naming conventions.
+
+Preprod ("preprod" branch) -- QA/initial testing
+Develop ("develop" branch) -- Staging server.
+Production ("master" branch) -- Live site
+
+## Standard Workflow
+
+1) Project Request comes in
+2) Create new git branch based off `develop` branch (link to feature branch naming convention)
+3) Develop & test locally. Commit early, commit often.
+4) Once it's good locally: Create pull request for your branch into `preprod` branch
+	- Code review to ensure "best practice" standards, and no clashes with other code
+5) Once preprod build process has run, check preprod site for testing/QA
+	- Make any database (wp-admin) changes to preprod site.
+	- While ideally our local dev environment will match our live server environments, it's not always 100% and sometimes issues will come up on the live server. Since our hosting & environments are all managed by WPVIP, this where all of our testing/QA takes place.
+	- If external review/approval is needed from other NU teams, send them the preprod link so they can test/review
+6) Apply any necessary changes/revisions, and re-push to `preprod` branch, re-review as necessary
+7) Once the preprod version is approved, go back to your feature branch and create a new pull request to merge into `develop`
+	- Commits may need to be squashed
+8) Once branch is merged into develop, do one final round of QA/testing on develop site.
+	- Make any database (wp-admin) changes to develop site
+9) During our next scheduled code release, the `develop` branch (which at this point likely includes multiple new 'feature' branches that have gone through the above workflow) will be merged into the `master` branch.
+10) Perform one final test on the live site to ensure everything is good.
+	- Make any database (wp-admin) changes to live site
+
+
+----------------------------------------------------------------------
+
 ?> _TODO_ Below content is from prior dev documentation, may be outdated.
 
 ----------------------------------------------------------------------

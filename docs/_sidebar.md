@@ -67,6 +67,7 @@
 	- **RFI Forms**
 		- [Overview](rfi-forms/overview.md)
 		- [Data routing](rfi-forms/data-routing.md)
+		- [Custom Settings](rfi-forms/custom-settings.md)
 		- [App Step 1 Form](rfi-forms/app-step-one.md)
 	- **WPVIP**
 		- [Overview](wpvip/overview.md)
