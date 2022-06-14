@@ -14,7 +14,7 @@
 - There should be a Release template for the merge description under `~/.github/PULL_REQUEST_TEMPLATE/release_template.md`
 - Gather the Pull Requests(PRs) that were merged into `develop` since the last release (i.e. those that have the HEAD as `develop`), using your preferred method. Options, but not limited to:
 	- Using **GitHub CLI**.
-		- `gh pr list --state merged --search "NOT preprod in:title sort:updated-desc"` (at time of publishing) will list most of the information needed.
+		- `gh pr list --state merged --base "develop"` (at time of publishing) will list most of the information needed.
 	- Manually through GitHub UI.
 		- Visit the repo URL `{repo-url}/pulls?q=is%3Apr+is%3Amerged+NOT+preprod+in%3Atitle+sort%3Aupdated-desc+`
 		- Collect the #, title, and note what it affected (theme, plugin, workflow, etc) to match with the Release PR template.
