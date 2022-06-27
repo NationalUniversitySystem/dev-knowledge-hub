@@ -228,6 +228,8 @@ no-http, no trailing slash
 wp_blogs
 no-http, no trailing slash
 
+wp_#_options
+http://, no trailling slash
 
 Although the root folder has composer.json, don't run composer install. Only for when updating specific plugins or installing new plugins.
 

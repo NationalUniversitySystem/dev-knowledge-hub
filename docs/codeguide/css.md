@@ -1,5 +1,16 @@
 # CSS / SASS Codeguide
 
+Misc notes from brand microsite development:
+- Avoid excessive nesting as much as possible (i.e. don't use SASS for code organization. We can do that via comments & splitting into separate files)
+	- Can create problems with specificity later on, i.e. force us to use !important when we shouldn't have to
+- Try to rely on bootstrap for simple padding & margin, i.e. "pt-3", "mx-5", etc.
+	- This lets us easily adjust for responsiveness ("pt-md-3", "mx-lg-5", etc), so we can cut down on having to write extra media queries for minor spacing/padding.
+	- We have a customization to extend the numbering system of these utility classes. Instead of the standard bootstrap 1-5, we now have 1-26.
+		- Source file: /src/scss/00_base/_bootstrap-overrides.scss
+- Use specific properties when possible, i.e. `background-color:` instead of `background:`
+	- Easier to adjust/override from other classes, less reliance on !important
+
+
 ## Syntax
 
 - Use soft tabs with two spaces. (Should be set up in the project's `.editorconfig` file.)

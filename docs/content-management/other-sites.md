@@ -52,5 +52,7 @@ https://www.inspireteaching.org/
 ## info.nu.edu
 - Some templates make heavy use of widget areas for content.
 
+## brand.nu.edu
+- Everything is currently hard-coded, due to site simplicity & tight deadline. We will revisit and 'wordpress-ify' it later, time permitting.
 
 ## Etc...
