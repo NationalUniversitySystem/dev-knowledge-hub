@@ -68,3 +68,73 @@ Example:
 ## Housekeeping
 - Clean unused and already merged `branches`. Make sure you exercise good housekeeping by deleting unused branches locally and remotely.
 - Close `issues`. Make sure you close those issues that have been fixed, in case they were not automatically closed via keywords in the release notes.
+
+
+
+
+------------- Temp notes
+
+Agamero
+  2:57 PM
+go ahead and create the PR, please. I'm assuming there'll be a bunch of commits. I'll show you how to "clean" that and squash them
+we dont want that cause there is no point for having all those commits since I guess they are all related to the same feature, the SMS Pilot
+
+please create a new PR from your branch to merge all those changes into develop. I think, you are going to need to practice the git rebase command to squash those commits as much as possible, please.
+
+Agamero
+  3:27 PM
+so while you're on that branch where you are working on (plugins/nuedu-forms/sms-pilot) and you have the latest version of the branch where you want to merge your changes pulled down (in this case develop ):
+you should use the command git rebase -i develop
+hopefully you should have a rebase setup to open in your editor…
+then squash your commits. Remember, at least one commit should have the option pick.
+(replace pick with squash)
+save and close that tab on your editor
+new tab editor opens up and remove those commit messages that you no longer need
+and at then use git push --force to push your changes to the PR that you created
+
+
+
+
+Mike
+  10:59 AM
+i saw that the modality feature is now approved. i can include it in tomorrow’s release. should be early in the day.
+to include it into develop though we’ll have to do a git rebase, since it was originally “branched off” preprod  but it is now intended for develop.
+If we dont do this, there will be extra commits and irrelevant features from preprod when we’d put the themes/national-university-hotb/modality-links branch into develop.
+the main command(s):
+while on any branch: git rebase --onto origin/develop 4787c361c themes/national-university-hotb/modality-links
+ If already on the modality links branch: git rebase --onto origin/develop 4787c361c
+after that’s done you’ll have to git push --force to actually push the branch.
+explanation:
+what the command(s) does is “snap/cut” off the branch from the commit with hash 4787c361c and places on top/on the tip of origin/develop .
+ notes:
+4787c361c  is where preprod used to be at. because the HEAD of preprod has moved, we have use the specific commit hash instead of just the name.
+using the origin/develop just to make sure the branch is placed at the top of the remote version of develop, in case you can’t fetch and have your local develop branch up to date.
+if you’d like to clean up the commits as well, you can add the --interactive / -i flag to squash/remove/edit/etc commits.
+template:
+git rebase --interactive --onto {branch name or hash of where you want to go} {originally where you branched off} {the branch youre moving (optional)}
+finally, theeeeen create the PR in Github towards develop. you can make it the same as #1505
+
+
+
+
+
+
+- Feature `branch` off of `develop`
+- Commits during development of feature
+- github PR `branch` -> `preprod`
+- git rebase -i preprod => squash commits [or maybe not, don't have to?]
+- Approve PR and merge into preprod (merge commits, already squashed)
+
+- github PR `branch` -> `develop`
+- Rebase merge
+
+
+- [test 1] currently on same path as develop
+
+- feature branch PR into develop [rebase]
+
+
+- 
+
+undo last merge (or just revert commits)
+https://www.freecodecamp.org/news/git-undo-merge-how-to-revert-the-last-merge-commit-in-git/
