@@ -37,7 +37,7 @@
 		- [Curriqunet API](nu-site-doc/curriqunet-api.md)
 		- [Optimizely](nu-site-doc/optimizely.md)
 		- [SOAR Application](nu-site-doc/soar-application.md)
-		- [LinkedIn Token](nu-site-doc/linkedin-token.md)
+		- [LinkedIn LeadGen](nu-site-doc/linkedin-lead-gen.md)
 		- [Submitting to Data OPS](nu-site-doc/dataops.md)
 	- **NU Custom Plugins**
 		- [GravityForms - DoublePositive](nu-plugins-docs/gf-doublepositive.md)
