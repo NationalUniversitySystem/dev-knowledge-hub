@@ -1,6 +1,16 @@
 # Faculty Import
 
-!> **Important**: The *only* updates we should make to Faculty post types via wp-admin is to add or change a headshot. Any other changes will be overwritten.
+
+!> **Important**: All of the below documentation pertains to an outdated process no longer in place. When NU was using SOAR for HR, we had a custom solution built out that auto-imported all faculty & their info to the website on a weekly basis. However, NU switched from SOAR to Workday, so this no longer applies. **For now, all changes to Faculty pages on the website will need to be done manually as content updates.**
+
+> @TODO Look into if there's a way to build out a similar automated solution that integrates with Workday.
+
+----------------------------------------------------------------------------------------------------------
+
+### (Legacy) SOAR Automated Faculty Import
+
+
+**Important**: The *only* updates we should make to Faculty post types via wp-admin is to add or change a headshot. Any other changes will be overwritten.
 
 **If a faculty member is requesting an update (other than headshot) to their profile page on nu.edu, tell them they need to make the change in SOAR and the updates will auto-populate after about a week.**
 

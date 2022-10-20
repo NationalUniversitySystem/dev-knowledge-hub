@@ -1,10 +1,12 @@
 # NUSAServices.com
 
+!> The below is info left behind from Mike & Alex and may be outdated at this point. For additional info, please see: [NU Site Documentation - LinkedIn LeadGen](nu-site-doc/linkedin-lead-gen.md)
+
 The reason that this site exists is for LinkedIn and Facebook (Meta) to send the Lead Gen Form entries from the [LinkedIn.com](http://linkedin.com/) or [Facebook](https://www.facebook.com/) ads itself to a [nusaservices.com](http://nusaservices.com/) endpoint/webhook and then that website sends it to the CRM via GravityForms webhooks.
 
 The web team was asked to build this site because before it was developed, the Paid Media team used to use Zappier but they needed some data manipulated or predetermined (supplier ID and such) before it went to the CRM...all of which LinkedIn nor Zappier offer.
 
-## How nusaservices.com works?
+### How nusaservices.com works?
 - Someone on LinkedIn or Facebook submits a Lead Gen Form type of ad on LinkedIn/FB.
 
 - LinkedIn/FB sends a notice to the [nusaservices.com](http://nusaservices.com/) website which is caught at specific URL for each.

@@ -1,3 +1,0 @@
-# BrightEdge
-
-placeholder
