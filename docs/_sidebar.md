@@ -25,6 +25,7 @@
 		- [Code Releases](workflows/code-releases.md)
 	- **NU Site Documentation**
 		- [Overview](nu-site-doc/overview.md)
+		- [Forms](nu-site-doc/forms.md)
 		- [Multisite Notes](nu-site-doc/multisite.md)
 		- [Custom Post Types](nu-site-doc/cpts.md)
 		- [Custom Meta Fields](nu-site-doc/custom-meta-fields.md)
