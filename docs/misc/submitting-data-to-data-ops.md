@@ -1,5 +1,7 @@
 # Submitting to DataOPS
 
+!> Old documentation. Keeping here for now in case we need to reference for some reason.
+
 At the beginning of each month, scholarship essays need to be sent to DataOPS.
 
 ## Pulling submission

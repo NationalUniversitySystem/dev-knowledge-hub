@@ -8,9 +8,11 @@
 		- [Multisite Notes](nu-site-doc/multisite.md)
 		- [Program Finder](nu-site-doc/program-finder.md)
 		- [Trustpilot Integration](nu-site-doc/trustpilot-integration.md)
+		- [Tuition Calculator](nu-site-doc/tuition-calculator.md)
 		- [Placeholder Topics](nu-site-doc/placeholder-topics.md)
 	- **Content Management**
 		- [General Notes](content-management/general-notes.md)
+		- [Area of Interest Pages](content-management/areas-of-interest.md)
 		- [Press Releases](content-management/press-releases.md)
 		- [Terms & Conditions](content-management/terms-conditions.md)
 		- [Redirects & Vanity URLs](content-management/redirect-vanity-urls.md)
@@ -38,6 +40,10 @@
 		- [Data routing](rfi-forms/data-routing.md)
 		- [Custom Settings](rfi-forms/custom-settings.md)
 		- [App Step 1 Form](rfi-forms/app-step-one.md)
+	- **Misc**
+		- [Facebook CAPI](misc/facebook-capi.md)
+		- [SOAR Application](misc/soar-application.md)
+		- [Data Ops Submission](misc/submitting-data-to-data-ops.md)
 	- **WPVIP**
 		- [Overview](wpvip/overview.md)
 		- [VIP-CLI](wpvip/vip-cli.md)

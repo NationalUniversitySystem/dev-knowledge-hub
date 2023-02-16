@@ -1,5 +1,7 @@
 # SOAR Application
 
+!> Old documentation. Keeping here for now in case we need to reference for some reason.
+
 - Entries that are unsuccessful generate an automated "Error" email that gets sent to the dev team.
 - [How to manually re-send unsuccessful submissions to SOAR](https://nationaluniversitysystem.github.io/dev-knowledge-hub/#/nu-site-doc/soar-application?id=e-send-unsuccessful-submissions-to-soar)
 
