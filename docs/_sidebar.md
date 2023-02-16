@@ -1,5 +1,6 @@
 - [NUSA Dev Team Docs](/)
 	- **NU Site Documentation**
+		- [Chatbot](nu-site-doc/chatbot.md)
 		- [Custom Meta Fields](nu-site-doc/custom-meta-fields.md)
 		- [Faculty Import Process](nu-site-doc/faculty-import-process.md)
 		- [Forms](nu-site-doc/forms.md)
