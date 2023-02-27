@@ -71,6 +71,26 @@ If our Access Token expires, initial webhook leads sent from LinkedIn will still
 5) Manually check & compare GravityForm entires
     - Form: LinkedIn Webhook Notifications, check 'state' field for list of entries. Successful entries should say 'Processed'. If any entries say 'New', then select them via checkbox and do Bulk Actions->Import Notifications
 
+## LinkedIn API Versioning
+We use the LinkedIn Marketing API for the above-discussed leadgen flow. As of February 2023, LinkedIn dropped support for their legacy API (v2) and transitioned to a new monthly-versioned API format. The major requirement for this is that **all requests to LinkedIn API endpoints must contain a "version" value in the request header**. This version needs to be in YYYYMM format, i.e. 202302.
+
+Going forward, LinkedIn will release a new API version **every month**, however each monthly version will remain supported for at least a year.
+
+To help keep us up to date while minimizing the need for constant code releases, we can set the API version we want to use via WP-Admin, under the Linkedin API Settings->Config Settings. This should (ideally) be reviewed monthly, and assuming no breaking changes have been introduced, the version can be updated on our end. Version updates should be tested thoroughly on preprod (see below) prior to updating on production.
+
+
+## Testing
+
+### Testing on Preprod/Local
+We have developed a tool for testing our Linkedin Leadflow: https://nusaservices-com-preprod.go-vip.net/linkedin-leadgen-test/
+
+This is because it's impossible to test our leadflow accurately with dummy data, because we need to make an API call to LinkedIn that uses an actual adFormResponseID otherwise the request will fail.
+
+To use this tool, click the "generate inputs" button at the bottom of the form. This will grab a random recent entry from our production site, and populate it into the form. Clicking submit will submit the data to the LinkedIn response endpoint, and debug logging will be displayed on the right side of the page. The important part of this output is the bottom "Compare to Output" table. The first row shows the result of the "test" API we just ran. The bottom row shows the actual data stored on production for the same entry. If the two lines match, then our code on preprod is working. There's a lot more work we could do to smooth out this testing tool, but for now it will still give us a high degree of confidence that any updates being tested on preprod will work on production.
+
+### Testing on Production
+Need to go to LinkedIn Campaign Manager, pull up an ad that has a leadgen form associated with it. From within CampaignManager, click 'Preview' and fill out and submit the form. Check produciton wp-admin. Should see an entry under Forms->Linkedin Webhooks Notifications (status: processed), and then a corresponding entry in the Forms->LinkedIn CRM Webhooks.
+
 ## Resources/References
 - LinkedIn Developer Console: https://developer.linkedin.com
 - LinkedIn Campaign Manager Dashboard: https://linkedin.com/campaignmanager
@@ -80,33 +100,5 @@ If our Access Token expires, initial webhook leads sent from LinkedIn will still
 - FB webhooks dev docs: https://developers.facebook.com/docs/graph-api/webhooks/ 
 - FB app inside of FB developers dashboard: https://developers.facebook.com/apps/655915921954022/dashboard/?business_id=10152303787876404 
 
-
--------------------------------------------------------------------------------------------------
-### Steps to copy token over to other affiliates 
-!> **Everything below is "legacy info"** -- NCU & CityU used to also use the same nusaservices API for LinkedIn leadgen flow, so we would need to manually copy/paste Access Token values so they could be used by all 3 affiliates. NCU & CityU no longer use LinkedIn leads, thus we no longer need to do this. Leaving the info here for now though, just in case.
-
-The most convenient way to do this is to use the WP CLI tool to copy settings over since these are saved in the options table of the database, which there is no direct access to on WPVIP hosting. 
-- Use the WP VIP CLI tool with the vip wp command. 
-- Select the nusaservices app. 
-- Select “production” environment. 
-- Get the NU options: wp option get nusa_nu_linkedin_token which follows the format wp option get nusa_{uni_slug}_linkedin_token. 
-- The result will be an array with the needed data. 
-	- Specific data needed is “access_token”, “refresh_token”, and “expires” 
-	- Both tokens are long strings 
-	- Expires date is an Epoch Unix timestamp. 
-- Commands to update the other affiliates options: 
-	- wp option patch update nusa_ncu_linkedin_token access_token XXXXXXXXXXXXXXXXXxxxXXXxxxxXXxxxxxxxXXXX 
-	- wp option patch update nusa_ncu_linkedin_token refresh_token XXXXXXXXXXXXXXXXXxxxXXXxxxxXXxxxxxxxXXXX 
-	- wp option patch update nusa_{uni_slug}_linkedin_token expires 111111111 
-	- uni_slug options include cityu, ncu, and nu. 
-- Take note of the “expire” option and convert it online with a tool such as unixtimestamp.com so a calendar reminder can be set. 
-
-
-
-Location of settings in the admin dashboard: 
-
-![LinkedIn Token Screenshot - 1](../_images/linkedin-token-1.png)
-
-Example of settings when pulled by WP CLI: 
-
-![LinkedIn Token Screenshot - 2](../_images/linkedin-token-2.png)
+### Other Misc Notes
+- The LinkedIn API Admin Settings page shows options for 'City University' and 'Northcentral University'. As a part of our once-planned transition to NEP, NU's webdev team was also responsible for Linkedin Leadgen for these two schools. However, this is no longer the case, and these have not been used for well over a year. This is a big reason why the code for NUSAServices is so complex, the processes were built to scale across multiple schools rather than just NU. Going forward we can delete these two schools from the wp-admin settings, and hopefully at some point simplify the codebase a bit.
