@@ -1,4 +1,4 @@
-# Local Environment Import
+# Local Environment Setup
 
 !> Important: *Most* of our live sites are setup as multisite installations. Even sites that don't actually have any subdomains are generally still installed as a multisite. This is often important to specify when setting up a local environment as there are some behind-the-scenes differences with how WordPress handles multisites. We don't want a situation where a new feature is developed locally, only to have it break when pushed live because of the multisite aspect.
 
@@ -6,53 +6,54 @@
 
 ## WPVIP Local Dev Tool
 
-WPVIP recommends setting up a local development environment with the VIP Local Development Environment feature built into VIP-CLI. This has the benefit of making it easy to create a local environment that is nearly identical to our live site. This environment is based on Docker, however only minimal knowledge of Docker is actually required.
+WPVIP recommends setting up a local development environment with the VIP Local Development Environment feature built into VIP-CLI. This has the benefit of making it easy to create a local environment that is nearly identical to our live site. This environment is based on Docker; however, only minimal knowledge of Docker is actually required.
 
-Please see [WPVIP - Create a VIP Local Development Environment](https://docs.wpvip.com/how-tos/local-development/use-the-vip-local-development-environment/) for WPVIP's official documentation. This tool is under constant development by the WPVIP, so refer to that link for the most up-to-date info. That being said, WPVIP's documentation is also usually not very clear, so the below is a walkthrough example to be used in conjunction with the official documentation.
+Please see [WPVIP - Create a VIP Local Development Environment](https://docs.wpvip.com/how-tos/local-development/use-the-vip-local-development-environment/) for WPVIP's official documentation. This tool is under constant development by WPVIP, so refer to that link for the most up-to-date info. That being said, WPVIP's documentation is not always clear, so the below is a walkthrough example to be used in conjunction with the official documentation.
 
-### Below steps will focus on setting up a local environment for nu.edu. Most of our other sites will follow the same process
+### Below steps will focus on setting up a local environment for nu.edu. Most of our other sites will follow the same process.
 
-1) Check all prerequisites required in the WPVIP documentation. i.e. VIP-CLI, Docker Desktop, etc.
+1) Check all prerequisites required in the WPVIP documentation, i.e. VIP-CLI, Docker Desktop, etc.
 
 2) Clone our site's [Github repo](https://github.com/wpcomvip/nu-edu) to your local computer. Ideally to your desktop or somewhere that is easy to access.
-	- Note: You may need to configure your GitHub account with an SSH key, since our repo's are private and live under the WPVIP parent account.
+	- Note: You may need to configure your GitHub account with an SSH key, since our repos are private and live under the WPVIP parent account.
 
 3) Via command line, run `vip @1161.production dev-env create --slug=nu-edu` to create your local dev environment.
-	- This launches the WPVIP local dev env setup wizard
+	- This launches the WPVIP local dev env setup wizard.
 	- `@1161.production` tells the tool we want to create a local environment that matches the **production** version of our nu-edu site (which is VIP app ID **1161**)
-		- Running `vip app list` will give a list of all of our sites along with their VIP app ID #'s
+		- Running `vip app list` will give a list of all of our sites along with their VIP app ID #s
 	- `--slug=nu-edu` tells the tool to give a certain name to your local environment. **You can name this anything you want**, but it's generally best to have it match with whatever we call it on WPVIP.
-	- All of our sites use WordPress **v6.0** and PHP **v7.4** as of July 2022, but double check the live site you're cloning to make sure you're using the same versions.
-		- Note: As of November 2022 all of our sites will be upgraded to PHP v8.0
-	- Prompt to redirect to live site for media files -- **true** (this is recommended as it means you won't have to pull images locally)
-	- Prompt for vip-go-mu-plugins -- **image** (this is code that WPVIP runs on the back-end of all sites)
-	- Prompt for source site-code -- **local** and paste the full folder path to the repo you cloned in Step 2
-	- Prompt for Enterprise Search -- **false** (I don't think we use this on any of our sites)
-	- Prompt for phpMyAdmin -- **true** but it's up to you. I personally like having access to it, but if you have a different preferred method of interacting with the database then go for it.
-	- Prompt for XDebug? -- ?? [this is a newer feature WPVIP recently added, not sure. @todo investigate]
+	- Multisite prompt: match the live setup. Usually true.
+	- PHP version: match live setup. Usually 8.0.
+	- WordPress version: match live setup. Usually 6.0.
+	- Redirect to live site for media files -- true is recommended as it means you won't have to pull images locally
+	- Source vip-go-mu-plugins -- image/demo (this is code that WPVIP runs on the back-end of all sites)
+	- Source application code -- local/custom; paste the full folder path to the repo you cloned in Step 2
+	- Enterprise Search -- false (I don't think we use this on any of our sites)
+	- phpMyAdmin -- true is recommended but optional if you prefer to interact with the database some other way
+	- XDebug -- false, @todo investigate incorporating this into our workflow (good way to debug PHP)
+	- MailHog -- false, @todo investigate incorporating this into our workflow (catches all emails so you can see them locally without having to live-send)
 
 4) Run `vip dev-env start --slug nu-edu` to launch the local environment you just created.
-	- This may take few minutes to run, as it is spinning up a docker container, pulling down wordpress, pulling down the vip-mu-plugins, and setting up the environment. 
-		- In the future you can run the command with the `-S` flag to skip rebuilding, for a somewhat faster load time.
+	- This may take few minutes to run, as it is spinning up a Docker container, pulling down WordPress, pulling down the vip-mu-plugins, and setting up the environment. 
+	- In the future you can run the command with the `-S` flag to skip rebuilding, for a somewhat faster load time.
 
-5) We now need to import the database to our local environment. [Please see the full WPVIP tutorial on this here](https://docs.wpvip.com/how-tos/dev-env-add-content/).
-	- Export the most recent database backup from WPVIP dashboard (or VaultPress). Note that for nu.edu it will probably take awhile to 'prepare' the file for download, as the database is very large. **Note:** For editing the .sql file (below), I found it easiest to edit via Notepad++, due to the size of the file and the amount of memory required to open it.
-	- The export file will be a .gzip and needs to be unzipped until you're able to access the .sql file(s)
+5) Import the database locally. [Please see the full WPVIP tutorial on this here](https://docs.wpvip.com/how-tos/dev-env-add-content/).
+	- Export the most recent database backup from WPVIP dashboard (or VaultPress). Note that for nu.edu it will probably take awhile to 'prepare' the file for download, as the database is very large. Using a basic text editor such as Notepad++ or Notes is recommended - the file is large and tends to crash IDEs.
+	- Unzip the downloaded .gzip file.
 		- If using WPVIP Dashboard Database Export, export is a single .sql file that will have a timestamped name.
-		- If using a VaultPress database export each table is exported as its own file and you need to concat them into a single file. Vaultpress also splits each multisite sub-site into it's own separate export, so you will have to repeat the below process for each sub-site.
-	- To make things easier in the CLI, rename to **nu-edu-db.sql**. For the import process, WPVIP says the file must be saved to the home directory of the current user (Windows: C:\Users\current-user\file.sql, Mac: /Users/current-user/file.sql)
+		- If using a VaultPress database export, each table is exported as its own file, and you need to concat them into a single file. Vaultpress also splits each multisite sub-site into its own separate export, so you will have to repeat the below process for each sub-site.
+	- To make things easier in the CLI, rename to **nu-edu-db.sql**. For the import process, WPVIP says the file must be saved to the home directory of the current user (Windows: C:\Users\current-user\nu-edu-db.sql, Mac: /Users/current-user/nu-edu-db.sql)
 	- Open the .sql file and **delete** the following:
-		- The 2 lines that contain `CREATE DATABASE` and `USE` statements, should be one of the first sections of the file
-		- Everything related to the `_pantheon_heartbeat` table (we can look into removing this from our production database)
+		- Everything related to the `_pantheon_heartbeat` table - @todo remove from production
 		- Everything related to the `wp_users` and `wp_usermeta` tables. We do this because WPVIP's dev-env tool creates a special "vipgo" user account for our local dev environment, and we don't want to overwrite that.
 ![SQL to delete](../_images/sql-delete.png)
 		- For nu.edu, we can also delete the **INSERT INTO** data for following tables: `wp_gf_entry_meta`, `wp_gf_entry`, `wp_gf_entry_notes`, `wp_2_gf_entry_meta`, `wp_2_gf_entry` and `wp_2_gf_entry_notes` tables. 
 			- We **do not** want to delete the **CREATE TABLE...** portion of these tables. Otherwise GravityForms will be buggy on our local environment.
-			- These tables store our historical gravity form submissions, for both www and info. We don't need these locally. In fact we should probably look into cleaning this out on our production database too - there's no need for us to store 2+ GB of form entries from 2+ years ago, right?
+			- These tables store our historical gravity form submissions, for both www and info. We don't need these locally. @todo remove old data from production, preferably on a set schedule
 ![SQL to delete pt2](../_images/sql-delete-2.png)
 		- Run `vip dev-env --slug=nu-edu import sql nu-edu-sql.sql --search-replace="https://www.nu.edu,http://nu-edu.vipdev.lndo.site","info.nu.edu,info.nu-edu.vipdev.lndo.site","india.nu.edu,india.nu-edu.vipdev.lndo.site","community.nu.edu,community.nu-edu.vipdev.lndo.site","saam.nu.edu,saam.nu-edu.vipdev.lndo.site","anniversary.nu.edu,anniversary.nu-edu.vipdev.lndo.site"
-			- This imports our database, and changes the URL structures to match that of our local environment. **NOTE** If you chose a slug other than **nu-edu** for your local environment, you will have to change the URLs above to match that.
-		- Once this is imported, there are still a handful of database changes we'll need to make. This can be accomplished via additional search-replace commands (or could probably be somehow incorporated into the above command), but I find it easier to just manually update these via phpmyadmin. Your local phpmyadmin URL was generated/provided when you ran the `vip dev-env --slug=nu-edu start` command. If you lost it, run `vip dev-env --slug=nu-edu stop` and then re-run the start command. 
+			- This imports our database and changes the URL structures to match that of our local environment. **NOTE** If you chose a slug other than **nu-edu** for your local environment, you will have to change the URLs above to match that.
+		- Once this is imported, there are still a handful of database changes we'll need to make. @todo automate these:
 			- wp_options table: both `siteurl` and `home` should be `http://nu-edu.vipdev.lndo.site` (can do https if you have that configured for local)
 			- wp_site table: `domain` should be `nu-edu.vipdev.lndo.site`
 			- wp_sitemeta table: `site_name` should be `nu-edu.vipdev.lndo.site`
@@ -71,29 +72,30 @@ Please see [WPVIP - Create a VIP Local Development Environment](https://docs.wpv
 8) Check that all network sites are present
 	- WP-Admin->My Sites->Network Admin->Sites
 	- For each site, ensure that you are able to:
-		a) 'Visit' the site. Make sure it loads **locally** and doesn't redirect to the live site. The styling will look completely off and that is okay, because we still need to build the theme assets (next step)
-		b) Load the 'Dashboard' for that individual site
+		a) Visit the site. Make sure it loads **locally** and doesn't redirect to the live site. The styling will look completely off and that is okay, because we still need to build the theme assets (next step)
+		b) Load the Dashboard for that individual site
 
 9) Build theme assets
 	- At this point, visiting your local site `http://nu-edu.vipdev.lndo.site/` will show the correct content, but the styling will probably be broken. That's because we still need to build our theme assets.
 	- Navigate to `themes/national-university-hotb/` and run `npm install` and then `npm run gulp`
 		- This will build our CSS & JS assets, which are in our `/themes/national-university-hotb/assets/` folder. This folder is excluded from git, as we use CircleCI for our build process on the live sites.
-		- We currently use gulp for our build process here, which also launches its own localhost. Since we're running our local environment vai WPVIP/docker, we can close this process once the file build is complete.
-		- Gulp may throw a series of errors/warnings for jslint & sasslint. We should revisit how we're integrating those.
+		- We currently use gulp for our build process here, which also launches its own localhost. Since we're running our local environment vai WPVIP/Docker, we can close this process once the file build is complete.
+		- Gulp may throw a series of errors/warnings for jslint & sasslint. @todo revisit
 		- After the command completes, run `vip dev-env --slug=nu-edu exec -- wp cache flush --all-tables` to flush the cache
-	- Repeat this process for `themes/info-hotb` and `themes/parent-hotb` (since info-hotb is, for the time being, still a child theme of info-parent. Note for info-parent, run `npm run build` instead of `npm run gulp`)
+	- Repeat this process for `themes/info-hotb`.
+	- For `themes/info-parent`, run `npm install` followed by `npm run build`.
 	- Repeat this process for the other themes in the themes folder if you want, but we rarely (if ever) make updates to those.
+	- @todo Audit and fix packages with security vulnerabilities.
 
 10) Build plugin assets
 	- Similar to the above process, certain custom plugins require assets to be built as well.
-		- plugins/gravityforms-fallback -- `npm run build` [note: unclear if we still need or even use this plugin]
 		- plugins/gravityforms-nus-customization -- `npm run build`
 		- plugins/national-university-react-wp-plugin -- `npm run build`
 		- plugins/nuedu-blocks -- `npm run build`
 		- plugins/nuedu-core-functionality -- `npm run build`
-		- plugins/nus-react-wp -- `npm run build` [note: unclear what the difference is between this plugin and national-university-react-wp-plugin?]
+		- plugins/nus-react-wp -- `npm run build` @todo investigate the difference between this plugin and national-university-react-wp-plugin
 
-	- After running all of these, it might not be necessary, but probably a good idea to restart your dev env.
+	- After running all of these, it might not be necessary, but it's probably a good idea to restart your dev env.
 
 11)  At this point, your local site should be *nearly* identical to the live site.
 	- Certain images are going to be missing, and that's okay. During the `dev-env create` setup wizard, we had an option for `--media-redirect-domain`. This enables our local site to pull images from the live site, but it only works for images that are attached/loaded via wordpress (i.e. featured images, or anything loaded via wp_get_attachment, etc). Images that are hard-coded as HTML or manually set as background-image via CSS will usually not load locally. This could probably be fixed, but unless it is mission-critical for a specific dev task, it's probably not worth the effort. Note that you can still upload images to the local site via WP-Admin and they will be available to use as you would on the live site.
