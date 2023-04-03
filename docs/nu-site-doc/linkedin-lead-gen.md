@@ -74,7 +74,7 @@ If our Access Token expires, initial webhook leads sent from LinkedIn will still
 ## LinkedIn API Versioning
 We use the LinkedIn Marketing API for the above-discussed leadgen flow. As of February 2023, LinkedIn dropped support for their legacy API (v2) and transitioned to a new monthly-versioned API format. The major requirement for this is that **all requests to LinkedIn API endpoints must contain a "version" value in the request header**. This version needs to be in YYYYMM format, i.e. 202302.
 
-Going forward, LinkedIn will release a new API version **every month**, however each monthly version will remain supported for at least a year.
+Going forward, LinkedIn will release a new API version **every month**, however each monthly version will remain supported for at least a year. This means that at the very least we will need to revisit this once per year, but ideally we should update on a monthly basis if possible.
 
 To help keep us up to date while minimizing the need for constant code releases, we can set the API version we want to use via WP-Admin, under the Linkedin API Settings->Config Settings. This should (ideally) be reviewed monthly, and assuming no breaking changes have been introduced, the version can be updated on our end. Version updates should be tested thoroughly on preprod (see below) prior to updating on production.
 
