@@ -38,7 +38,7 @@ Please see [WPVIP - Create a VIP Local Development Environment](https://docs.wpv
 	- In the future you can run the command with the `-S` flag to skip rebuilding, for a somewhat faster load time.
 
 5) Import the database locally. [Please see the full WPVIP tutorial on this here](https://docs.wpvip.com/how-tos/dev-env-add-content/).
-	- Export the most recent database backup from WPVIP dashboard (or VaultPress). Note that for nu.edu it will probably take awhile to 'prepare' the file for download, as the database is very large. Using a basic text editor such as Notepad++ or Notes is recommended - the file is large and tends to crash IDEs.
+	- Export the most recent database backup from WPVIP dashboard (or VaultPress). Note that for nu.edu it will probably take awhile to 'prepare' the file for download, as the database is very large. Using a basic text editor such as Notepad++ (Windows) or BBEdit (Mac) is recommended - the file is large and tends to crash IDEs.
 	- Unzip the downloaded .gzip file.
 		- If using WPVIP Dashboard Database Export, export is a single .sql file that will have a timestamped name.
 		- If using a VaultPress database export, each table is exported as its own file, and you need to concat them into a single file. Vaultpress also splits each multisite sub-site into its own separate export, so you will have to repeat the below process for each sub-site.
@@ -238,27 +238,4 @@ An issue you might run into when importing a site from production (or any other 
 - Navigate to the Settings -> Permalinks settings page.
 - Save/update settings without actually changing anything.
 
-
-
------------
-temp notes. Disregard.
-
-- import SQL
-- `vip dev-env --slug=nu-edu exec -- wp search-replace --url=info.nu.edu info.nu.edu nu-edu.vipdev.lndo.site/info`
-- `vip dev-env --slug=nu-edu exec -- wp search-replace --url=nu-edu.vipdev.lndo.site/info https://info.nu.edu nu-edu.vipdev.lndo.site/info`
-- `vip dev-env --slug=nu-edu exec -- wp cache flush --url=nu-edu.vipdev.lndo.site/info`
-- Need to restart dev-env
-- `vip dev-env --slug=nu-edu exec -- wp search-replace --all-tables https://nu-edu.vipdev.lndo.site/info http://nu-edu.vipdev.lndo.site/info`
-- 
-
-Maybe restart dev-env?
-
-
-
-
 Although the root folder has composer.json, don't run composer install. Only for when updating specific plugins or installing new plugins.
-
-
-themes/national-university-hotb/
-npm install
-npm run build
