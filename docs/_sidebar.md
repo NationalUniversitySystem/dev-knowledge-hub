@@ -22,6 +22,7 @@
 	- **Dev Workflows**
 		- [Build Process](dev-workflows/build-process.md)
 		- [Code Releases](dev-workflows/code-releases.md)
+		- [Linting](dev-workflows/linting.md)
 		- [Local Environment Setup](dev-workflows/local-environment-import.md)
 		- [Standard Dev Workflow](dev-workflows/standard-dev-workflow.md)
 	- **NU Custom Plugins**
