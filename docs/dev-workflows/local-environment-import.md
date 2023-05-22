@@ -51,7 +51,7 @@ Please see [WPVIP - Create a VIP Local Development Environment](https://docs.wpv
 			- We **do not** want to delete the **CREATE TABLE...** portion of these tables. Otherwise GravityForms will be buggy on our local environment.
 			- These tables store our historical gravity form submissions, for both www and info. We don't need these locally. @todo remove old data from production, preferably on a set schedule
 ![SQL to delete pt2](../_images/sql-delete-2.png)
-		- Run `vip dev-env --slug=nu-edu import sql nu-edu-sql.sql --search-replace="https://www.nu.edu,http://nu-edu.vipdev.lndo.site","info.nu.edu,info.nu-edu.vipdev.lndo.site","india.nu.edu,india.nu-edu.vipdev.lndo.site","community.nu.edu,community.nu-edu.vipdev.lndo.site","saam.nu.edu,saam.nu-edu.vipdev.lndo.site","anniversary.nu.edu,anniversary.nu-edu.vipdev.lndo.site"
+		- Run `vip dev-env --slug=nu-edu import sql nu-edu-db.sql --search-replace="//www.nu.edu,//nu-edu.vipdev.lndo.site","//info.nu.edu,//info.nu-edu.vipdev.lndo.site","//india.nu.edu,//india.nu-edu.vipdev.lndo.site","//community.nu.edu,//community.nu-edu.vipdev.lndo.site","//saam.nu.edu,//saam.nu-edu.vipdev.lndo.site","//anniversary.nu.edu,//anniversary.nu-edu.vipdev.lndo.site","//law.nu.edu,//law.nu-edu.vipdev.lndo.site","https:,http:"`
 			- This imports our database and changes the URL structures to match that of our local environment. **NOTE** If you chose a slug other than **nu-edu** for your local environment, you will have to change the URLs above to match that.
 		- Once this is imported, there are still a handful of database changes we'll need to make. @todo automate these:
 			- wp_options table: both `siteurl` and `home` should be `http://nu-edu.vipdev.lndo.site` (can do https if you have that configured for local)
