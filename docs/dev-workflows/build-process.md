@@ -1,4 +1,4 @@
-# Build Workflow
+# Build Process
 
 Basic Process:
 
@@ -8,7 +8,9 @@ Basic Process:
 4) WPVIP takes the code from the '-built' branch and deploys it to our live site (generally takes a couple minutes)
 5) Caches will generally need to be cleared, including Cloudflare if applicable
 
-## First environment: develop or develop3
+## Environments
+
+### First environment: develop or develop3
 
 Code changes are typically pushed directly to develop. However, Johnny uses develop3 for content updates, so for proofing purposes or for testing larger updates such as a WP Core update, we sometimes push to develop3 first until everything looks good, then also push to develop.
 
@@ -16,11 +18,11 @@ To merge to develop or develop3, a senior developer will first review the PR, th
 
 ![Merge commit or squash and merge](../_images/develop-merge.png)
 
-## Second environment: preprod
+### Second environment: preprod
 
 Preprod is our staging environment, where we test changes again and make sure everything looks good before going live. Changes pushed to this environment will automatically be included in any releases to prod.
 
-## Final environment: prod
+### Final environment: prod
 
 Changes to prod are typically merged either on Tuesdays or Thursdays. We coordinate with The Brick Factory to make sure everything in preprod is tested and ready to merge. See [Code Releases](https://nationaluniversitysystem.github.io/dev-knowledge-hub/#/dev-workflows/code-releases) for step-by-step details.
 
