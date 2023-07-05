@@ -42,6 +42,8 @@ To lint automatically with VS Code:
     * Note: You will need to edit the last setting for the executables folder. You can re-run step 3 (the two lines to install the VIP coding standards) and your terminal should say `Changed current directory to` your Composer directory. For example, Elaine's is `/Users/elaineshannon/.composer`. Add `/vendor/bin/` to the end, so for Elaine's the full path for phpSniffer.executablesFolder is `/Users/elaineshannon/.composer/vendor/bin/`.
     * Similarly on Windows, Elaine's Composer path is `C:\Users\elaine\AppData\Roaming\Composer`. Since a backslash is a special character in JSON, escape each one with a duplicate backslash, and also add the `\vendor\bin\` folder at the end - so Elaine's Windows full path for phpSniffer.executablesFolder is `C:\\Users\\elaine\\AppData\\Roaming\\Composer\\vendor\\bin\\`.
 7. Completely close and re-open VS Code. Now when a PHP or JS file has focus, you'll see the most recently saved standards warnings in the Problems view. (Click the x and caution icons at the bottom left of your screen, or choose View > Problems from the top menu, to show this view.)
+    * It's a good idea to save your work frequently. Each time you save, linting will run again. (It is possible to change this so it lints as you type, but that tends to overload VS Code.)
+    * If for some reason you open a file and you're not seeing the linting warnings that you're sure should be there, try closing the file and reopening it.
 
 - Related: [wpVIP documentation on using PHP CodeSniffer](https://docs.wpvip.com/how-tos/php_codesniffer/)
 
