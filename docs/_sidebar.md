@@ -7,6 +7,7 @@
 		- [LinkedIn LeadGen](nu-site-doc/linkedin-lead-gen.md)
 		- [Multisite Notes](nu-site-doc/multisite.md)
 		- [Program Finder](nu-site-doc/program-finder.md)
+		- [Referral Program](nu-site-doc/referral-program.md)
 		- [Trustpilot Integration](nu-site-doc/trustpilot-integration.md)
 		- [Tuition Calculator](nu-site-doc/tuition-calculator.md)
 		- [Placeholder Topics](nu-site-doc/placeholder-topics.md)
