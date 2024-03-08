@@ -38,7 +38,7 @@ Please see [WPVIP - Create a VIP Local Development Environment](https://docs.wpv
 	- In the future you can run the command with the `-S` flag to skip rebuilding, for a somewhat faster load time.
 
 5) Import the database locally. [Please see the full WPVIP tutorial on this here](https://docs.wpvip.com/how-tos/dev-env-add-content/).
-	- Export the most recent database backup from WPVIP dashboard (or VaultPress). Note that for nu.edu it will probably take awhile to 'prepare' the file for download, as the database is very large. Using a basic text editor such as Notepad++ or Notes is recommended - the file is large and tends to crash IDEs.
+	- Export the most recent database backup from WPVIP dashboard (or VaultPress). Note that for nu.edu it will probably take awhile to 'prepare' the file for download, as the database is very large. Using a basic text editor such as Notepad++ (Windows) or BBEdit (Mac) is recommended - the file is large and tends to crash IDEs.
 	- Unzip the downloaded .gzip file.
 		- If using WPVIP Dashboard Database Export, export is a single .sql file that will have a timestamped name.
 		- If using a VaultPress database export, each table is exported as its own file, and you need to concat them into a single file. Vaultpress also splits each multisite sub-site into its own separate export, so you will have to repeat the below process for each sub-site.
@@ -51,7 +51,8 @@ Please see [WPVIP - Create a VIP Local Development Environment](https://docs.wpv
 			- We **do not** want to delete the **CREATE TABLE...** portion of these tables. Otherwise GravityForms will be buggy on our local environment.
 			- These tables store our historical gravity form submissions, for both www and info. We don't need these locally. @todo remove old data from production, preferably on a set schedule
 ![SQL to delete pt2](../_images/sql-delete-2.png)
-		- Run `vip dev-env --slug=nu-edu import sql nu-edu-sql.sql --search-replace="https://www.nu.edu,http://nu-edu.vipdev.lndo.site","info.nu.edu,info.nu-edu.vipdev.lndo.site","india.nu.edu,india.nu-edu.vipdev.lndo.site","community.nu.edu,community.nu-edu.vipdev.lndo.site","saam.nu.edu,saam.nu-edu.vipdev.lndo.site","anniversary.nu.edu,anniversary.nu-edu.vipdev.lndo.site"
+		- Run `vip dev-env --slug=nu-edu import sql nu-edu-db.sql --search-replace="//www.nu.edu,//nu-edu.vipdev.lndo.site","//info.nu.edu,//info.nu-edu.vipdev.lndo.site","//india.nu.edu,//india.nu-edu.vipdev.lndo.site","//community.nu.edu,//community.nu-edu.vipdev.lndo.site","//saam.nu.edu,//saam.nu-edu.vipdev.lndo.site","//anniversary.nu.edu,//anniversary.nu-edu.vipdev.lndo.site","//apply.nu.edu,//apply.nu-edu.vipdev.lndo.site","//law.nu.edu,//law.nu-edu.vipdev.lndo.site","https:,http:"`
+			- If you still get validation errors and are confident you were careful in removing data, you can add a `-S` to the end of the command to skip validation.
 			- This imports our database and changes the URL structures to match that of our local environment. **NOTE** If you chose a slug other than **nu-edu** for your local environment, you will have to change the URLs above to match that.
 		- Once this is imported, there are still a handful of database changes we'll need to make. @todo automate these:
 			- wp_options table: both `siteurl` and `home` should be `http://nu-edu.vipdev.lndo.site` (can do https if you have that configured for local)
@@ -238,27 +239,4 @@ An issue you might run into when importing a site from production (or any other 
 - Navigate to the Settings -> Permalinks settings page.
 - Save/update settings without actually changing anything.
 
-
-
------------
-temp notes. Disregard.
-
-- import SQL
-- `vip dev-env --slug=nu-edu exec -- wp search-replace --url=info.nu.edu info.nu.edu nu-edu.vipdev.lndo.site/info`
-- `vip dev-env --slug=nu-edu exec -- wp search-replace --url=nu-edu.vipdev.lndo.site/info https://info.nu.edu nu-edu.vipdev.lndo.site/info`
-- `vip dev-env --slug=nu-edu exec -- wp cache flush --url=nu-edu.vipdev.lndo.site/info`
-- Need to restart dev-env
-- `vip dev-env --slug=nu-edu exec -- wp search-replace --all-tables https://nu-edu.vipdev.lndo.site/info http://nu-edu.vipdev.lndo.site/info`
-- 
-
-Maybe restart dev-env?
-
-
-
-
 Although the root folder has composer.json, don't run composer install. Only for when updating specific plugins or installing new plugins.
-
-
-themes/national-university-hotb/
-npm install
-npm run build

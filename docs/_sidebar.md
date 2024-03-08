@@ -7,6 +7,7 @@
 		- [LinkedIn LeadGen](nu-site-doc/linkedin-lead-gen.md)
 		- [Multisite Notes](nu-site-doc/multisite.md)
 		- [Program Finder](nu-site-doc/program-finder.md)
+		- [Referral Program](nu-site-doc/referral-program.md)
 		- [Trustpilot Integration](nu-site-doc/trustpilot-integration.md)
 		- [Tuition Calculator](nu-site-doc/tuition-calculator.md)
 		- [Placeholder Topics](nu-site-doc/placeholder-topics.md)
@@ -22,6 +23,7 @@
 	- **Dev Workflows**
 		- [Build Process](dev-workflows/build-process.md)
 		- [Code Releases](dev-workflows/code-releases.md)
+		- [Linting](dev-workflows/linting.md)
 		- [Local Environment Setup](dev-workflows/local-environment-import.md)
 		- [Standard Dev Workflow](dev-workflows/standard-dev-workflow.md)
 	- **NU Custom Plugins**
