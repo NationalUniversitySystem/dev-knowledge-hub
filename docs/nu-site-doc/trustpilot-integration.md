@@ -1,6 +1,6 @@
 # Trustpilot Integration
 
-We currently integrate with Trustpilot for a couple things.
+All remaining trustpilot code is legacy code that can be removed. There were multiple Trustpilot initiatives we implemented in the past. All of them were deemed high-priority at the time, but later turned out to be complete wastes of time due to poor leadership decisions.
 
 ## Embedded Reviews Widgets
 On certain pages we display reviews from Trustpilot (or at least we did at one point).

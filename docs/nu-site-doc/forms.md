@@ -49,8 +49,7 @@ GravityForms also provides us with a selection of "post" and "pricing" form fiel
 
 We have a wide array of custom fields that we have created. Some are self-explanatory, while others are a bit more complicated.
 - **Honeypot field**: This is a "trap" field, designed to catch bot submissions. This creates a field labeled "Form Email Field" which is not displayed on the form's actual front end. On legitimate form entries, this field will be blank because it is hidden. Bots, however, will usually fill this out because they see it labeled "email", which is usually a required field. We have back-end functionality that will auto-delete any form submissions that have a value in this field. While we could use something like recaptcha for this, this method provides a better UX as the user doesn't need to check an "I'm not a robot" box or select a series of images. Allows for less "friction" in the form submission process.
-- **Journaya**: This implements a dynamically-created Journaya tracking code on the form. @TODO will expand more on Journaya elsewhere.
-- @TODO expand on other noteworthy custom fields
+- **Journaya**: Journaya field is not currently used. This was part of a very large and hastily-planned third-party platform integration, which turned out to be a monumental waste of everyone's time due to poor leadership.
 
 ### Hidden Fields
 

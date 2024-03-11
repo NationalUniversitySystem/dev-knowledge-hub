@@ -24,7 +24,7 @@ Preprod is our staging environment, where we test changes again and make sure ev
 
 ### Final environment: prod
 
-Changes to prod are typically merged either on Tuesdays or Thursdays. We coordinate with The Brick Factory to make sure everything in preprod is tested and ready to merge. See [Code Releases](https://nationaluniversitysystem.github.io/dev-knowledge-hub/#/dev-workflows/code-releases) for step-by-step details.
+Changes to prod are typically merged either on Tuesdays or Wednesdays. We coordinate with The Brick Factory to make sure everything in preprod is tested and ready to merge. See [Code Releases](https://nationaluniversitysystem.github.io/dev-knowledge-hub/#/dev-workflows/code-releases) for step-by-step details.
 
 ## CircleCI
 

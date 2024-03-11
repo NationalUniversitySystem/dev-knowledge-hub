@@ -1,3 +1,3 @@
 # NationalEd.org
 
-Not sure if we'll need to keep this site up? Is NEP still a thing?
+Legacy site has been sunset. This was the site for the National Education Partners organization. This was from very early in the merger process when it was originally decided that NU & NCU should remain separate. Like most things related to the merger, it was poorly thought out by leadership and resulted in lots of people wasting lots of time and budget. nationaled.org now redirects to nu.edu (via DNS redirect, IT-owned), and the WPVIP instance for it has officially been sunset.
