@@ -10,6 +10,9 @@
 		- [Referral Program](nu-site-doc/referral-program.md)
 		- [Trustpilot Integration](nu-site-doc/trustpilot-integration.md)
 		- [Tuition Calculator](nu-site-doc/tuition-calculator.md)
+		- [Central System Plugin](nu-site-doc/central-system.md)
+		- [Data Object API](nu-site-doc/data-object.md)
+		- [Faculty API Import](nu-site-doc/faculty-api-import.md)
 		- [Placeholder Topics](nu-site-doc/placeholder-topics.md)
 	- **Content Management**
 		- [General Notes](content-management/general-notes.md)
@@ -26,6 +29,8 @@
 		- [Linting](dev-workflows/linting.md)
 		- [Local Environment Setup](dev-workflows/local-environment-import.md)
 		- [Standard Dev Workflow](dev-workflows/standard-dev-workflow.md)
+		- [Github Copilot](dev-workflows/github-copiliot.md)
+		- [Copilot Cheat Sheet](dev-workflows/github-copiliot-cheat-sheet.md)
 	- **NU Custom Plugins**
 		- [GravityForms - Fallback](nu-plugins-docs/gf-fallback.md)
 		- [Placeholders / Other](nu-plugins-docs/placeholder.md)
@@ -73,4 +78,3 @@
 		- [General](tips-and-help/general.md)
 		- [Scripts](tips-and-help/scripts.md)
 		- [HTTPS localhost](tips-and-help/https-localhost.md)
-		- [TESTING](dev-workflows/github-copiliot.md)
