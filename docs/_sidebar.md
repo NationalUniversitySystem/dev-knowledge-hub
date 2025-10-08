@@ -73,3 +73,4 @@
 		- [General](tips-and-help/general.md)
 		- [Scripts](tips-and-help/scripts.md)
 		- [HTTPS localhost](tips-and-help/https-localhost.md)
+		- [TESTING](dev-workflows/github-copiliot.md)
